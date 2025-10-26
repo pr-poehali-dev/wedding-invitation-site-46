@@ -117,6 +117,13 @@ const WeddingInvitation = () => {
         throw new Error('Failed to submit RSVP');
       }
 
+      // Проигрываем звук колокольчиков
+      const bellSound = new Audio('https://cdn.pixabay.com/audio/2022/03/10/audio_9c0bb5f5c4.mp3');
+      bellSound.volume = 0.5;
+      bellSound.play().catch(() => {
+        // Игнорируем ошибки автовоспроизведения
+      });
+
       toast({
         title: "Спасибо за подтверждение!",
         description: "Мы с нетерпением ждем встречи с вами",
