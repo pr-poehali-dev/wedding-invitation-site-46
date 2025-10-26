@@ -158,48 +158,50 @@ const WeddingInvitation = () => {
             <div className="h-px w-24 bg-primary/30 mx-auto"></div>
           </div>
           
-          <div className="mb-12 animate-fade-in" style={{ animationDelay: '0.1s', opacity: 0, animationFillMode: 'forwards' }}>
+          <div className="relative animate-fade-in" style={{ animationDelay: '0.1s', opacity: 0, animationFillMode: 'forwards' }}>
             <div className="rounded-lg overflow-hidden shadow-2xl">
               <img 
                 src="https://cdn.poehali.dev/files/cf92b069-54dd-42ee-8cfe-1d04b4a5c9aa.jpg" 
                 alt="Место проведения свадьбы"
-                className="w-full h-[400px] md:h-[500px] object-cover"
+                className="w-full h-[500px] md:h-[600px] object-cover"
               />
             </div>
-          </div>
-          
-          <div className="grid md:grid-cols-3 gap-12">
-            <div className="text-center animate-fade-in" style={{ animationDelay: '0.2s', opacity: 0, animationFillMode: 'forwards' }}>
-              <div className="mb-6">
-                <Icon name="Calendar" size={40} className="mx-auto text-primary/70" />
-              </div>
-              <h3 className="text-xl font-serif mb-3 text-primary">Дата</h3>
-              <p className="text-lg font-light text-foreground">
-                15 июля 2025 года
-              </p>
-            </div>
             
-            <div className="text-center animate-fade-in" style={{ animationDelay: '0.3s', opacity: 0, animationFillMode: 'forwards' }}>
-              <div className="mb-6">
-                <Icon name="Clock" size={40} className="mx-auto text-primary/70" />
+            <div className="absolute inset-0 flex items-end justify-center pb-8 md:pb-12">
+              <div className="grid md:grid-cols-3 gap-4 md:gap-6 w-full max-w-4xl px-4">
+                <div className="text-center bg-gray-800/80 backdrop-blur-sm rounded-lg p-6 border border-white/20 animate-fade-in" style={{ animationDelay: '0.2s', opacity: 0, animationFillMode: 'forwards' }}>
+                  <div className="mb-4">
+                    <Icon name="Calendar" size={36} className="mx-auto text-white" />
+                  </div>
+                  <h3 className="text-lg font-serif mb-2 text-white">Дата</h3>
+                  <p className="text-base font-light text-white/90">
+                    15 июля 2025 года
+                  </p>
+                </div>
+                
+                <div className="text-center bg-gray-800/80 backdrop-blur-sm rounded-lg p-6 border border-white/20 animate-fade-in" style={{ animationDelay: '0.3s', opacity: 0, animationFillMode: 'forwards' }}>
+                  <div className="mb-4">
+                    <Icon name="Clock" size={36} className="mx-auto text-white" />
+                  </div>
+                  <h3 className="text-lg font-serif mb-2 text-white">Время</h3>
+                  <p className="text-base font-light text-white/90">
+                    Начало в 16:00
+                  </p>
+                </div>
+                
+                <div className="text-center bg-gray-800/80 backdrop-blur-sm rounded-lg p-6 border border-white/20 animate-fade-in" style={{ animationDelay: '0.4s', opacity: 0, animationFillMode: 'forwards' }}>
+                  <div className="mb-4">
+                    <Icon name="MapPin" size={36} className="mx-auto text-white" />
+                  </div>
+                  <h3 className="text-lg font-serif mb-2 text-white">Место</h3>
+                  <p className="text-base font-light text-white/90">
+                    Ресторан "Усадьба"
+                  </p>
+                  <p className="text-sm text-white/70 mt-1 font-light">
+                    Московская область<br/>пос. Сосновый бор
+                  </p>
+                </div>
               </div>
-              <h3 className="text-xl font-serif mb-3 text-primary">Время</h3>
-              <p className="text-lg font-light text-foreground">
-                Начало в 16:00
-              </p>
-            </div>
-            
-            <div className="text-center animate-fade-in" style={{ animationDelay: '0.4s', opacity: 0, animationFillMode: 'forwards' }}>
-              <div className="mb-6">
-                <Icon name="MapPin" size={40} className="mx-auto text-primary/70" />
-              </div>
-              <h3 className="text-xl font-serif mb-3 text-primary">Место</h3>
-              <p className="text-lg font-light text-foreground">
-                Ресторан "Усадьба"
-              </p>
-              <p className="text-sm text-muted-foreground mt-2 font-light">
-                Московская область<br/>пос. Сосновый бор
-              </p>
             </div>
           </div>
         </div>
