@@ -31,7 +31,7 @@ const WeddingInvitation = () => {
 
   useEffect(() => {
     const audioElement = new Audio();
-    audioElement.src = 'https://docs.google.com/uc?export=download&id=1gNRNnMUumygd9yZ-mF_-ZiTDlNDICNL5';
+    audioElement.src = 'https://disk.yandex.ru/d/9mgtKbn5NqbIfg';
     audioElement.loop = true;
     audioElement.volume = 0.3;
     audioElement.preload = 'auto';
