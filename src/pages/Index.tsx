@@ -50,12 +50,19 @@ const WeddingInvitation = () => {
       audio.pause();
       setIsPlaying(false);
     } else {
-      audio.play()
-        .then(() => setIsPlaying(true))
-        .catch(err => {
-          console.error('Audio play failed:', err);
-          alert('Не удалось воспроизвести музыку. Попробуйте нажать кнопку ещё раз.');
-        });
+      const playPromise = audio.play();
+      if (playPromise !== undefined) {
+        playPromise
+          .then(() => setIsPlaying(true))
+          .catch(err => {
+            console.error('Audio play failed:', err);
+            toast({
+              title: "Ошибка воспроизведения",
+              description: "Не удалось воспроизвести музыку. Проверьте соединение с интернетом.",
+              variant: "destructive"
+            });
+          });
+      }
     }
   };
 
