@@ -133,9 +133,7 @@ const WeddingInvitation = () => {
           <div className="mb-8 animate-float">
             <Icon name="Heart" size={56} className="mx-auto text-primary" />
           </div>
-          <h1 className="text-7xl md:text-9xl font-serif font-light text-primary mb-6 tracking-wider">
-            Анна & Дмитрий
-          </h1>
+          <h1 className="text-7xl md:text-9xl font-serif font-light text-primary mb-6 tracking-wider text-center">Ксения & Владимир</h1>
           <div className="h-px w-32 bg-primary/40 mx-auto mb-6"></div>
           <p className="text-2xl md:text-3xl text-foreground font-light tracking-[0.3em]">
             15 • 07 • 2025
