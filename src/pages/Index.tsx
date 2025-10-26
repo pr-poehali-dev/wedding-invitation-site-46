@@ -35,49 +35,36 @@ const WeddingInvitation = () => {
     audioElement.src = 'https://ru-d3.drivemusic.me/dl/R55kFDrbzTDYXHy-q8sgoA/1761533897/download_music/2025/07/macan-amp-navai-neuzheli-jeto-vse-ljubov.mp3';
     audioElement.loop = true;
     audioElement.volume = 0.3;
-    audioElement.preload = 'auto';
+    audioElement.preload = 'metadata';
     setAudio(audioElement);
 
-    let timeSet = false;
-
-    const setStartTime = () => {
-      if (!timeSet && audioElement.readyState >= 1) {
+    const tryAutoplay = () => {
+      if (audioElement.readyState >= 1) {
         audioElement.currentTime = 37;
-        timeSet = true;
+        audioElement.play()
+          .then(() => {
+            setIsPlaying(true);
+          })
+          .catch(() => {
+            setShowMusicPrompt(true);
+          });
+      } else {
+        audioElement.addEventListener('loadedmetadata', () => {
+          audioElement.currentTime = 37;
+          audioElement.play()
+            .then(() => {
+              setIsPlaying(true);
+            })
+            .catch(() => {
+              setShowMusicPrompt(true);
+            });
+        }, { once: true });
       }
     };
 
-    const handleLoadedMetadata = () => {
-      setStartTime();
-    };
-
-    const handlePlaying = () => {
-      setStartTime();
-    };
-
-    audioElement.addEventListener('loadedmetadata', handleLoadedMetadata);
-    audioElement.addEventListener('playing', handlePlaying);
-
-    if (audioElement.readyState >= 1) {
-      audioElement.currentTime = 37;
-      timeSet = true;
-    }
-
-    audioElement.play()
-      .then(() => {
-        setIsPlaying(true);
-        setStartTime();
-      })
-      .catch(() => {
-        if (audioElement.readyState >= 1) {
-          audioElement.currentTime = 37;
-        }
-        setShowMusicPrompt(true);
-      });
+    setTimeout(tryAutoplay, 100);
 
     return () => {
-      audioElement.removeEventListener('loadedmetadata', handleLoadedMetadata);
-      audioElement.removeEventListener('playing', handlePlaying);
       audioElement.pause();
       audioElement.src = '';
     };
