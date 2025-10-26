@@ -31,53 +31,47 @@ const WeddingInvitation = () => {
 
   useEffect(() => {
     const audioElement = new Audio();
-    audioElement.src = 'https://ru-d3.drivemusic.me/dl/R55kFDrbzTDYXHy-q8sgoA/1761533897/download_music/2025/07/macan-amp-navai-neuzheli-jeto-vse-ljubov.mp3';
+    audioElement.src = 'https://ru-d3.drivemusic.me/dl/R55kFDrbzTDYXHy-q8sgoA/1761533897/download_music/2025/07/macan-amp-navai-neuzheli-jito-vse-ljubov.mp3';
     audioElement.loop = true;
     audioElement.volume = 0.3;
     audioElement.preload = 'auto';
     setAudio(audioElement);
 
-    let hasStarted = false;
+    let autoplayAttempted = false;
 
     const startAudio = () => {
-      if (audioElement.paused && !hasStarted) {
+      if (!autoplayAttempted) {
+        autoplayAttempted = true;
         audioElement.currentTime = 37;
         audioElement.play()
-          .then(() => {
-            setIsPlaying(true);
-            hasStarted = true;
-          })
+          .then(() => setIsPlaying(true))
           .catch(() => {});
-        document.removeEventListener('click', startAudio);
-        document.removeEventListener('touchstart', startAudio);
-        document.removeEventListener('scroll', startAudio);
+        document.removeEventListener('click', startAudio, true);
+        document.removeEventListener('touchstart', startAudio, true);
+        document.removeEventListener('keydown', startAudio, true);
       }
     };
 
-    const handleVisibilityChange = () => {
-      if (document.hidden) {
-        if (!audioElement.paused) {
-          audioElement.pause();
-        }
-      } else {
-        if (hasStarted && audioElement.paused) {
-          audioElement.play().catch(() => {});
-        }
-      }
-    };
+    document.addEventListener('click', startAudio, true);
+    document.addEventListener('touchstart', startAudio, true);
+    document.addEventListener('keydown', startAudio, true);
 
-    document.addEventListener('click', startAudio);
-    document.addEventListener('touchstart', startAudio);
-    document.addEventListener('scroll', startAudio);
-    document.addEventListener('visibilitychange', handleVisibilityChange);
+    setTimeout(() => {
+      audioElement.currentTime = 37;
+      audioElement.play()
+        .then(() => {
+          setIsPlaying(true);
+          autoplayAttempted = true;
+        })
+        .catch(() => {});
+    }, 100);
 
     return () => {
       audioElement.pause();
       audioElement.src = '';
-      document.removeEventListener('click', startAudio);
-      document.removeEventListener('touchstart', startAudio);
-      document.removeEventListener('scroll', startAudio);
-      document.removeEventListener('visibilitychange', handleVisibilityChange);
+      document.removeEventListener('click', startAudio, true);
+      document.removeEventListener('touchstart', startAudio, true);
+      document.removeEventListener('keydown', startAudio, true);
     };
   }, []);
 
