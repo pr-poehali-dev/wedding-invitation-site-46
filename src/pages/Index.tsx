@@ -165,44 +165,54 @@ const WeddingInvitation = () => {
           />
           
           <div className="absolute inset-0 flex items-end justify-center pb-8 md:pb-16">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 w-full max-w-5xl px-4">
-              <div className="text-center bg-gray-800/85 backdrop-blur-md rounded-xl p-6 md:p-8 border border-white/20 shadow-2xl animate-fade-in" style={{ animationDelay: '0.2s', opacity: 0, animationFillMode: 'forwards' }}>
-                <div className="mb-4">
-                  <Icon name="Calendar" size={40} className="mx-auto text-white" />
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4 w-full max-w-3xl px-4">
+              <div className="text-center bg-gray-900/50 backdrop-blur-sm rounded-lg p-4 md:p-5 border border-white/10 shadow-xl animate-fade-in" style={{ animationDelay: '0.2s', opacity: 0, animationFillMode: 'forwards' }}>
+                <div className="mb-3">
+                  <Icon name="Calendar" size={32} className="mx-auto text-white" />
                 </div>
-                <h3 className="text-xl font-serif mb-2 text-white">Дата</h3>
-                <p className="text-lg font-light text-white/95">
+                <h3 className="text-lg font-serif mb-1 text-white">Дата</h3>
+                <p className="text-base font-light text-white/95">
                   15 июля 2025 года
                 </p>
               </div>
               
-              <div className="text-center bg-gray-800/85 backdrop-blur-md rounded-xl p-6 md:p-8 border border-white/20 shadow-2xl animate-fade-in" style={{ animationDelay: '0.3s', opacity: 0, animationFillMode: 'forwards' }}>
-                <div className="mb-4">
-                  <Icon name="Clock" size={40} className="mx-auto text-white" />
+              <div className="text-center bg-gray-900/50 backdrop-blur-sm rounded-lg p-4 md:p-5 border border-white/10 shadow-xl animate-fade-in" style={{ animationDelay: '0.3s', opacity: 0, animationFillMode: 'forwards' }}>
+                <div className="mb-3">
+                  <Icon name="Clock" size={32} className="mx-auto text-white" />
                 </div>
-                <h3 className="text-xl font-serif mb-2 text-white">Время</h3>
-                <p className="text-lg font-light text-white/95">
+                <h3 className="text-lg font-serif mb-1 text-white">Время</h3>
+                <p className="text-base font-light text-white/95">
                   Начало в 16:00
                 </p>
               </div>
               
-              <div className="text-center bg-gray-800/85 backdrop-blur-md rounded-xl p-6 md:p-8 border border-white/20 shadow-2xl animate-fade-in" style={{ animationDelay: '0.4s', opacity: 0, animationFillMode: 'forwards' }}>
-                <div className="mb-4">
-                  <Icon name="MapPin" size={40} className="mx-auto text-white" />
+              <div className="text-center bg-gray-900/50 backdrop-blur-sm rounded-lg p-4 md:p-5 border border-white/10 shadow-xl animate-fade-in" style={{ animationDelay: '0.4s', opacity: 0, animationFillMode: 'forwards' }}>
+                <div className="mb-3">
+                  <Icon name="MapPin" size={32} className="mx-auto text-white" />
                 </div>
-                <h3 className="text-xl font-serif mb-2 text-white">Место</h3>
-                <p className="text-lg font-light text-white/95">
-                  Ресторан "Усадьба"
+                <h3 className="text-lg font-serif mb-1 text-white">Место</h3>
+                <p className="text-base font-light text-white/95">
+                  Ресторан "Версаль"
                 </p>
-                <p className="text-sm text-white/75 mt-2 font-light">
-                  Московская область<br/>пос. Сосновый бор
+                <p className="text-sm text-white/75 mt-1 font-light">
+                  г. Барнаул<br/>ул. Интернациональная, 116
                 </p>
               </div>
             </div>
           </div>
         </div>
         
-        <div className="h-20"></div>
+        <div className="text-center py-12 animate-fade-in" style={{ animationDelay: '0.5s', opacity: 0, animationFillMode: 'forwards' }}>
+          <a 
+            href="https://yandex.ru/maps/?text=Барнаул, Интернациональная 116, Версаль" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-8 py-4 rounded-full font-serif text-lg hover:bg-primary/90 transition-all shadow-lg hover:shadow-xl"
+          >
+            <Icon name="MapPin" size={24} />
+            Как добраться
+          </a>
+        </div>
       </section>
 
       <Divider />
