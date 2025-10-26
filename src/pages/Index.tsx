@@ -64,10 +64,10 @@ const WeddingInvitation = () => {
       <section 
         className="relative min-h-screen flex items-center justify-center bg-cover bg-center bg-no-repeat"
         style={{ 
-          backgroundImage: 'url(https://cdn.poehali.dev/projects/fa5d2723-1c80-43cf-b863-841e187d3b22/files/d86123a4-c716-4b0f-8420-70734dfdad2a.jpg)',
+          backgroundImage: 'url(https://cdn.poehali.dev/projects/fa5d2723-1c80-43cf-b863-841e187d3b22/files/cafb2357-2b72-452e-b457-6e6791f964af.jpg)',
         }}
       >
-        <div className="absolute inset-0 bg-background/40 backdrop-blur-[2px]"></div>
+        <div className="absolute inset-0 bg-background/30 backdrop-blur-[1px]"></div>
         
         <div className="relative z-10 text-center px-4 animate-fade-in">
           <div className="mb-8 animate-float">
