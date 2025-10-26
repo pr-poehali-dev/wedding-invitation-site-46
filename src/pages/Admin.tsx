@@ -12,6 +12,14 @@ interface RSVPResponse {
   created_at: string;
 }
 
+const drinkTranslations: Record<string, string> = {
+  'spirits': 'Крепкий алкоголь',
+  'white-wine': 'Белое вино',
+  'red-wine': 'Красное вино',
+  'champagne': 'Шампанское',
+  'non-alcoholic': 'Безалкогольные'
+};
+
 const Admin = () => {
   const [rsvps, setRsvps] = useState<RSVPResponse[]>([]);
   const [loading, setLoading] = useState(true);
@@ -32,6 +40,13 @@ const Admin = () => {
     } finally {
       setLoading(false);
     }
+  };
+
+  const translateDrinks = (drinks: string): string => {
+    return drinks
+      .split(', ')
+      .map(drink => drinkTranslations[drink.trim()] || drink)
+      .join(', ');
   };
 
   const totalGuests = rsvps.reduce((sum, rsvp) => sum + rsvp.guests_count, 0);
@@ -94,10 +109,10 @@ const Admin = () => {
 
                 {rsvp.dietary_restrictions && (
                   <div className="mb-3 flex items-start gap-2 transition-smooth">
-                    <Icon name="UtensilsCrossed" size={18} className="text-rose-400 mt-0.5" />
+                    <Icon name="Wine" size={18} className="text-rose-400 mt-0.5" />
                     <div>
-                      <div className="text-xs text-rose-600 mb-1">Предпочтения:</div>
-                      <div className="text-rose-900">{rsvp.dietary_restrictions}</div>
+                      <div className="text-xs text-rose-600 mb-1">Предпочтения по напиткам:</div>
+                      <div className="text-rose-900">{translateDrinks(rsvp.dietary_restrictions)}</div>
                     </div>
                   </div>
                 )}
