@@ -249,7 +249,8 @@ const WeddingInvitation = () => {
               <div className="text-sm font-light text-foreground py-2">29</div>
               <div className="text-sm font-light text-foreground py-2">30</div>
             </div>
-          </div>
+            </div>
+          </Card>
         </div>
       </section>
 
@@ -264,7 +265,14 @@ const WeddingInvitation = () => {
             <div className="h-px w-24 bg-primary/30 mx-auto"></div>
           </div>
           
-          <div className="space-y-8">
+          <Card className="p-10 md:p-16 bg-white shadow-2xl border-rose-100 overflow-hidden relative">
+            <div className="absolute inset-0 rounded-lg opacity-75 blur-xl" style={{
+              background: 'linear-gradient(90deg, #fda4af 0%, #fb7185 25%, #fda4af 50%, #fb7185 75%, #fda4af 100%)',
+              backgroundSize: '200% 100%',
+              animation: 'shimmer 3s linear infinite'
+            }}></div>
+            <div className="absolute inset-[2px] bg-white rounded-lg"></div>
+            <div className="relative z-10 space-y-8">
             {schedule.map((item, index) => (
               <div 
                 key={index} 
@@ -290,7 +298,8 @@ const WeddingInvitation = () => {
                 </div>
               </div>
             ))}
-          </div>
+            </div>
+          </Card>
         </div>
       </section>
 
@@ -304,6 +313,15 @@ const WeddingInvitation = () => {
           <div className="h-px w-24 bg-primary/30 mx-auto"></div>
         </div>
         
+        <div className="container max-w-6xl mx-auto px-4 pb-20">
+          <Card className="overflow-hidden relative bg-white shadow-2xl border-rose-100">
+            <div className="absolute inset-0 rounded-lg opacity-75 blur-xl" style={{
+              background: 'linear-gradient(90deg, #fda4af 0%, #fb7185 25%, #fda4af 50%, #fb7185 75%, #fda4af 100%)',
+              backgroundSize: '200% 100%',
+              animation: 'shimmer 3s linear infinite'
+            }}></div>
+            <div className="absolute inset-[2px] bg-white rounded-lg"></div>
+            <div className="relative z-10">
         <div className="relative w-full animate-fade-in" style={{ animationDelay: '0.1s', opacity: 0, animationFillMode: 'forwards' }}>
           <img 
             src="https://cdn.poehali.dev/files/cf92b069-54dd-42ee-8cfe-1d04b4a5c9aa.jpg" 
@@ -358,6 +376,9 @@ const WeddingInvitation = () => {
             <Icon name="MapPin" size={24} />
             Как добраться
           </a>
+        </div>
+            </div>
+          </Card>
         </div>
       </section>
 
