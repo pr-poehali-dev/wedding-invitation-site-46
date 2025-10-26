@@ -105,11 +105,10 @@ const WeddingInvitation = () => {
   };
 
   const schedule = [
-    { time: '16:00', event: 'Церемония бракосочетания', icon: 'Heart' },
-    { time: '17:30', event: 'Фуршет и поздравления', icon: 'Wine' },
-    { time: '19:00', event: 'Праздничный ужин', icon: 'UtensilsCrossed' },
-    { time: '21:00', event: 'Первый танец молодоженов', icon: 'Music' },
-    { time: '22:00', event: 'Развлекательная программа', icon: 'Sparkles' }
+    { time: '13:00', event: 'Церемония бракосочетания', icon: 'Heart' },
+    { time: '15:30', event: 'Сбор гостей', icon: 'Users' },
+    { time: '16:00', event: 'Банкет', icon: 'UtensilsCrossed' },
+    { time: '00:00', event: 'Окончание вечера', icon: 'Moon' }
   ];
 
   return (
