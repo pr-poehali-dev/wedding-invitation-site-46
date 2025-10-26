@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Cormorant:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -102,12 +102,15 @@
     font-family: "Montserrat", sans-serif;
   }
 
-  h1,
+  h1 {
+    font-family: "Great Vibes", cursive;
+  }
+
   h2,
   h3,
   h4,
   h5,
   h6 {
-    font-family: "Cormorant", serif;
+    font-family: "Playfair Display", serif;
   }
 }
