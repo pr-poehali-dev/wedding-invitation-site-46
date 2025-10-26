@@ -39,7 +39,7 @@ const Admin = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-rose-50 via-pink-50 to-rose-50 py-12">
       <div className="container max-w-6xl mx-auto px-4">
-        <div className="text-center mb-12">
+        <div className="text-center mb-12 animate-fade-in">
           <h1 className="text-4xl md:text-5xl font-serif text-rose-900 mb-4 font-light">
             Ответы гостей
           </h1>
@@ -61,14 +61,18 @@ const Admin = () => {
             <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-rose-400 mx-auto"></div>
           </div>
         ) : rsvps.length === 0 ? (
-          <Card className="p-12 text-center bg-white">
+          <Card className="p-12 text-center bg-white animate-scale-in">
             <Icon name="Inbox" size={48} className="mx-auto text-rose-300 mb-4" />
             <p className="text-rose-700">Пока нет ответов от гостей</p>
           </Card>
         ) : (
           <div className="grid gap-4">
-            {rsvps.map((rsvp) => (
-              <Card key={rsvp.id} className="p-6 bg-white shadow-lg border-rose-100">
+            {rsvps.map((rsvp, index) => (
+              <Card 
+                key={rsvp.id} 
+                className="p-6 bg-white shadow-lg border-rose-100 hover-lift animate-fade-in-up"
+                style={{ animationDelay: `${index * 0.1}s`, opacity: 0, animationFillMode: 'forwards' }}
+              >
                 <div className="flex items-start justify-between mb-4">
                   <div>
                     <h3 className="text-xl font-serif text-rose-900 mb-1">{rsvp.name}</h3>
@@ -82,14 +86,14 @@ const Admin = () => {
                       })}
                     </p>
                   </div>
-                  <div className="flex items-center gap-2 bg-rose-50 px-4 py-2 rounded-full">
+                  <div className="flex items-center gap-2 bg-rose-50 px-4 py-2 rounded-full transition-smooth">
                     <Icon name="Users" size={18} className="text-rose-600" />
                     <span className="font-medium text-rose-900">{rsvp.guests_count}</span>
                   </div>
                 </div>
 
                 {rsvp.dietary_restrictions && (
-                  <div className="mb-3 flex items-start gap-2">
+                  <div className="mb-3 flex items-start gap-2 transition-smooth">
                     <Icon name="UtensilsCrossed" size={18} className="text-rose-400 mt-0.5" />
                     <div>
                       <div className="text-xs text-rose-600 mb-1">Предпочтения:</div>
@@ -99,7 +103,7 @@ const Admin = () => {
                 )}
 
                 {rsvp.message && (
-                  <div className="flex items-start gap-2 bg-rose-50 p-4 rounded-lg">
+                  <div className="flex items-start gap-2 bg-rose-50 p-4 rounded-lg transition-smooth">
                     <Icon name="MessageCircle" size={18} className="text-rose-400 mt-0.5" />
                     <div>
                       <div className="text-xs text-rose-600 mb-1">Сообщение:</div>

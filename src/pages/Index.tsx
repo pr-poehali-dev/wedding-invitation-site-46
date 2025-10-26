@@ -142,7 +142,7 @@ const WeddingInvitation = () => {
     <div className="min-h-screen bg-background">
       <button
         onClick={toggleMusic}
-        className="fixed top-6 right-6 z-50 w-14 h-14 rounded-full bg-primary/90 backdrop-blur-sm flex items-center justify-center shadow-lg hover:bg-primary transition-all hover:scale-110"
+        className="fixed top-6 right-6 z-50 w-14 h-14 rounded-full bg-primary/90 backdrop-blur-sm flex items-center justify-center shadow-lg hover:bg-primary transition-smooth hover:scale-110 hover-lift"
         aria-label={isPlaying ? 'Выключить музыку' : 'Включить музыку'}
       >
         <Icon name={isPlaying ? 'Volume2' : 'VolumeX'} size={24} className="text-primary-foreground" />
@@ -160,10 +160,10 @@ const WeddingInvitation = () => {
           <div className="mb-4 animate-float">
             <Icon name="Heart" size={56} className="mx-auto text-primary" />
           </div>
-          <h1 className="text-7xl md:text-9xl font-serif font-light text-primary mb-64 md:mb-72 tracking-wider text-center">Ксения & Владимир</h1>
-          <div className="h-px w-32 bg-primary/40 mx-auto mb-8"></div>
-          <p className="text-2xl md:text-3xl text-foreground font-light tracking-[0.3em]">28 • 11 • 2025</p>
-          <p className="mt-8 text-xl md:text-2xl text-muted-foreground font-light italic">
+          <h1 className="text-7xl md:text-9xl font-serif font-light text-primary mb-64 md:mb-72 tracking-wider text-center animate-fade-in-down" style={{ animationDelay: '0.3s', opacity: 0, animationFillMode: 'forwards' }}>Ксения & Владимир</h1>
+          <div className="h-px w-32 bg-primary/40 mx-auto mb-8 animate-scale-in" style={{ animationDelay: '0.5s', opacity: 0, animationFillMode: 'forwards' }}></div>
+          <p className="text-2xl md:text-3xl text-foreground font-light tracking-[0.3em] animate-fade-in" style={{ animationDelay: '0.6s', opacity: 0, animationFillMode: 'forwards' }}>28 • 11 • 2025</p>
+          <p className="mt-8 text-xl md:text-2xl text-muted-foreground font-light italic animate-fade-in" style={{ animationDelay: '0.8s', opacity: 0, animationFillMode: 'forwards' }}>
             Приглашаем вас разделить с нами этот особенный день
           </p>
         </div>
@@ -173,7 +173,7 @@ const WeddingInvitation = () => {
           className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 animate-bounce"
           aria-label="Прокрутить вниз"
         >
-          <Icon name="ChevronDown" size={40} className="text-primary/70 hover:text-primary transition-colors" />
+          <Icon name="ChevronDown" size={40} className="text-primary/70 hover:text-primary transition-smooth" />
         </button>
       </section>
 
@@ -271,8 +271,8 @@ const WeddingInvitation = () => {
                 </div>
                 
                 <div className="flex-shrink-0 mt-2">
-                  <div className="w-12 h-12 rounded-full bg-accent/40 flex items-center justify-center group-hover:bg-accent/60 transition-all group-hover:scale-110">
-                    <Icon name={item.icon as any} size={22} className="text-primary" />
+                  <div className="w-12 h-12 rounded-full bg-accent/40 flex items-center justify-center group-hover:bg-accent/60 transition-smooth group-hover:scale-110 hover-lift">
+                    <Icon name={item.icon as any} size={22} className="text-primary transition-smooth" />
                   </div>
                 </div>
                 
@@ -307,16 +307,16 @@ const WeddingInvitation = () => {
           
           <div className="absolute inset-0 flex items-end justify-center pb-8 md:pb-16">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4 w-full max-w-3xl px-4">
-              <div className="text-center bg-gray-900/50 backdrop-blur-sm rounded-lg p-4 md:p-5 border border-white/10 shadow-xl animate-fade-in" style={{ animationDelay: '0.2s', opacity: 0, animationFillMode: 'forwards' }}>
-                <div className="mb-3">
+              <div className="text-center bg-gray-900/50 backdrop-blur-sm rounded-lg p-4 md:p-5 border border-white/10 shadow-xl animate-scale-in hover-lift" style={{ animationDelay: '0.2s', opacity: 0, animationFillMode: 'forwards' }}>
+                <div className="mb-3 animate-float">
                   <Icon name="Calendar" size={32} className="mx-auto text-white" />
                 </div>
                 <h3 className="text-lg font-serif mb-1 text-white">Дата</h3>
                 <p className="text-base font-light text-white/95">28 ноября 2025 года</p>
               </div>
               
-              <div className="text-center bg-gray-900/50 backdrop-blur-sm rounded-lg p-4 md:p-5 border border-white/10 shadow-xl animate-fade-in" style={{ animationDelay: '0.3s', opacity: 0, animationFillMode: 'forwards' }}>
-                <div className="mb-3">
+              <div className="text-center bg-gray-900/50 backdrop-blur-sm rounded-lg p-4 md:p-5 border border-white/10 shadow-xl animate-scale-in hover-lift" style={{ animationDelay: '0.3s', opacity: 0, animationFillMode: 'forwards' }}>
+                <div className="mb-3 animate-float" style={{ animationDelay: '0.2s' }}>
                   <Icon name="Clock" size={32} className="mx-auto text-white" />
                 </div>
                 <h3 className="text-lg font-serif mb-1 text-white">Время</h3>
@@ -325,8 +325,8 @@ const WeddingInvitation = () => {
                 </p>
               </div>
               
-              <div className="text-center bg-gray-900/50 backdrop-blur-sm rounded-lg p-4 md:p-5 border border-white/10 shadow-xl animate-fade-in" style={{ animationDelay: '0.4s', opacity: 0, animationFillMode: 'forwards' }}>
-                <div className="mb-3">
+              <div className="text-center bg-gray-900/50 backdrop-blur-sm rounded-lg p-4 md:p-5 border border-white/10 shadow-xl animate-scale-in hover-lift" style={{ animationDelay: '0.4s', opacity: 0, animationFillMode: 'forwards' }}>
+                <div className="mb-3 animate-float" style={{ animationDelay: '0.4s' }}>
                   <Icon name="MapPin" size={32} className="mx-auto text-white" />
                 </div>
                 <h3 className="text-lg font-serif mb-1 text-white">Место</h3>
@@ -346,7 +346,7 @@ const WeddingInvitation = () => {
             href="https://yandex.ru/maps/?text=Барнаул, Интернациональная 116, Версаль" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-8 py-4 rounded-full font-serif text-lg hover:bg-primary/90 transition-all shadow-lg hover:shadow-xl"
+            className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-8 py-4 rounded-full font-serif text-lg hover:bg-primary/90 transition-smooth shadow-lg hover:shadow-xl hover-lift"
           >
             <Icon name="MapPin" size={24} />
             Как добраться
@@ -365,39 +365,39 @@ const WeddingInvitation = () => {
         <div className="absolute inset-0 bg-background/30 backdrop-blur-[1px]"></div>
         
         <div className="relative z-10 container max-w-5xl mx-auto px-4">
-          <Card className="p-10 md:p-16 bg-card/90 backdrop-blur-sm shadow-2xl border-accent/30 animate-fade-in">
+          <Card className="p-10 md:p-16 bg-card/90 backdrop-blur-sm shadow-2xl border-accent/30 animate-scale-in">
             <h2 className="text-4xl md:text-5xl font-serif text-center mb-4 text-primary font-light">
               До нашего счастливого дня
             </h2>
             <div className="h-px w-24 bg-primary/30 mx-auto mb-12"></div>
             
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-12">
-              <div className="text-center">
-                <div className="text-5xl md:text-7xl font-serif text-primary mb-3 font-light">
+              <div className="text-center animate-fade-in" style={{ animationDelay: '0.1s', opacity: 0, animationFillMode: 'forwards' }}>
+                <div className="text-5xl md:text-7xl font-serif text-primary mb-3 font-light transition-smooth">
                   {timeLeft.days}
                 </div>
                 <div className="text-sm md:text-base text-muted-foreground uppercase tracking-widest font-light">
                   дней
                 </div>
               </div>
-              <div className="text-center">
-                <div className="text-5xl md:text-7xl font-serif text-primary mb-3 font-light">
+              <div className="text-center animate-fade-in" style={{ animationDelay: '0.2s', opacity: 0, animationFillMode: 'forwards' }}>
+                <div className="text-5xl md:text-7xl font-serif text-primary mb-3 font-light transition-smooth">
                   {timeLeft.hours}
                 </div>
                 <div className="text-sm md:text-base text-muted-foreground uppercase tracking-widest font-light">
                   часов
                 </div>
               </div>
-              <div className="text-center">
-                <div className="text-5xl md:text-7xl font-serif text-primary mb-3 font-light">
+              <div className="text-center animate-fade-in" style={{ animationDelay: '0.3s', opacity: 0, animationFillMode: 'forwards' }}>
+                <div className="text-5xl md:text-7xl font-serif text-primary mb-3 font-light transition-smooth">
                   {timeLeft.minutes}
                 </div>
                 <div className="text-sm md:text-base text-muted-foreground uppercase tracking-widest font-light">
                   минут
                 </div>
               </div>
-              <div className="text-center">
-                <div className="text-5xl md:text-7xl font-serif text-primary mb-3 font-light">
+              <div className="text-center animate-fade-in" style={{ animationDelay: '0.4s', opacity: 0, animationFillMode: 'forwards' }}>
+                <div className="text-5xl md:text-7xl font-serif text-primary mb-3 font-light transition-smooth">
                   {timeLeft.seconds}
                 </div>
                 <div className="text-sm md:text-base text-muted-foreground uppercase tracking-widest font-light">
@@ -426,7 +426,7 @@ const WeddingInvitation = () => {
             </p>
           </div>
           
-          <Card className="p-10 md:p-16 bg-white shadow-2xl border-rose-100 animate-fade-in overflow-hidden relative" style={{ animationDelay: '0.2s', opacity: 0, animationFillMode: 'forwards' }}>
+          <Card className="p-10 md:p-16 bg-white shadow-2xl border-rose-100 animate-scale-in overflow-hidden relative" style={{ animationDelay: '0.2s', opacity: 0, animationFillMode: 'forwards' }}>
             <div className="absolute top-0 right-0 w-64 h-64 bg-rose-100/30 rounded-full blur-3xl -translate-y-32 translate-x-32"></div>
             <div className="absolute bottom-0 left-0 w-64 h-64 bg-pink-100/30 rounded-full blur-3xl translate-y-32 -translate-x-32"></div>
             
@@ -476,7 +476,7 @@ const WeddingInvitation = () => {
                     { id: 'champagne', label: 'Шампанское', icon: 'Sparkles' },
                     { id: 'non-alcoholic', label: 'Безалкогольные', icon: 'Coffee' }
                   ].map((drink) => (
-                    <div key={drink.id} className="flex items-center space-x-3 p-3 rounded-lg hover:bg-rose-100/50 transition-colors">
+                    <div key={drink.id} className="flex items-center space-x-3 p-3 rounded-lg hover:bg-rose-100/50 transition-smooth cursor-pointer">
                       <Checkbox
                         id={drink.id}
                         checked={formData.drinks.includes(drink.id)}
@@ -510,9 +510,9 @@ const WeddingInvitation = () => {
               
               <Button 
                 type="submit"
-                className="w-full bg-rose-500 hover:bg-rose-600 text-white py-7 text-xl font-medium tracking-wider transition-all hover:shadow-2xl hover:scale-[1.02] group"
+                className="w-full bg-rose-500 hover:bg-rose-600 text-white py-7 text-xl font-medium tracking-wider transition-slow hover:shadow-2xl hover:scale-[1.02] group"
               >
-                <Icon name="Send" size={20} className="mr-2 group-hover:translate-x-1 transition-transform" />
+                <Icon name="Send" size={20} className="mr-2 group-hover:translate-x-1 transition-smooth" />
                 Подтвердить присутствие
               </Button>
             </form>
