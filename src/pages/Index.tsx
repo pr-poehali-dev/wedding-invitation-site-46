@@ -150,7 +150,7 @@ const WeddingInvitation = () => {
       <Divider />
 
       <section className="py-20 md:py-32 bg-secondary/20">
-        <div className="container max-w-4xl mx-auto px-4">
+        <div className="container max-w-6xl mx-auto px-4">
           <div className="text-center mb-16 animate-fade-in">
             <h2 className="text-4xl md:text-5xl font-serif mb-4 text-primary font-light">
               Детали события
@@ -158,8 +158,18 @@ const WeddingInvitation = () => {
             <div className="h-px w-24 bg-primary/30 mx-auto"></div>
           </div>
           
+          <div className="mb-12 animate-fade-in" style={{ animationDelay: '0.1s', opacity: 0, animationFillMode: 'forwards' }}>
+            <div className="rounded-lg overflow-hidden shadow-2xl">
+              <img 
+                src="https://cdn.poehali.dev/files/cf92b069-54dd-42ee-8cfe-1d04b4a5c9aa.jpg" 
+                alt="Место проведения свадьбы"
+                className="w-full h-[400px] md:h-[500px] object-cover"
+              />
+            </div>
+          </div>
+          
           <div className="grid md:grid-cols-3 gap-12">
-            <div className="text-center animate-fade-in" style={{ animationDelay: '0.1s', opacity: 0, animationFillMode: 'forwards' }}>
+            <div className="text-center animate-fade-in" style={{ animationDelay: '0.2s', opacity: 0, animationFillMode: 'forwards' }}>
               <div className="mb-6">
                 <Icon name="Calendar" size={40} className="mx-auto text-primary/70" />
               </div>
@@ -169,7 +179,7 @@ const WeddingInvitation = () => {
               </p>
             </div>
             
-            <div className="text-center animate-fade-in" style={{ animationDelay: '0.2s', opacity: 0, animationFillMode: 'forwards' }}>
+            <div className="text-center animate-fade-in" style={{ animationDelay: '0.3s', opacity: 0, animationFillMode: 'forwards' }}>
               <div className="mb-6">
                 <Icon name="Clock" size={40} className="mx-auto text-primary/70" />
               </div>
@@ -179,7 +189,7 @@ const WeddingInvitation = () => {
               </p>
             </div>
             
-            <div className="text-center animate-fade-in" style={{ animationDelay: '0.3s', opacity: 0, animationFillMode: 'forwards' }}>
+            <div className="text-center animate-fade-in" style={{ animationDelay: '0.4s', opacity: 0, animationFillMode: 'forwards' }}>
               <div className="mb-6">
                 <Icon name="MapPin" size={40} className="mx-auto text-primary/70" />
               </div>
