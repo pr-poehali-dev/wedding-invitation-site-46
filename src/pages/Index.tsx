@@ -27,20 +27,36 @@ const WeddingInvitation = () => {
   });
 
   const [isPlaying, setIsPlaying] = useState(false);
-  const [audio] = useState(() => {
-    const audioElement = new Audio('https://drive.google.com/uc?export=download&id=1gNRNnMUumygd9yZ-mF_-ZiTDlNDICNL5');
+  const [audio, setAudio] = useState<HTMLAudioElement | null>(null);
+
+  useEffect(() => {
+    const audioElement = new Audio();
+    audioElement.src = 'https://docs.google.com/uc?export=download&id=1gNRNnMUumygd9yZ-mF_-ZiTDlNDICNL5';
     audioElement.loop = true;
     audioElement.volume = 0.3;
-    return audioElement;
-  });
+    audioElement.preload = 'auto';
+    setAudio(audioElement);
+
+    return () => {
+      audioElement.pause();
+      audioElement.src = '';
+    };
+  }, []);
 
   const toggleMusic = () => {
+    if (!audio) return;
+    
     if (isPlaying) {
       audio.pause();
+      setIsPlaying(false);
     } else {
-      audio.play().catch(err => console.log('Audio play failed:', err));
+      audio.play()
+        .then(() => setIsPlaying(true))
+        .catch(err => {
+          console.error('Audio play failed:', err);
+          alert('Не удалось воспроизвести музыку. Попробуйте нажать кнопку ещё раз.');
+        });
     }
-    setIsPlaying(!isPlaying);
   };
 
   useEffect(() => {
