@@ -26,6 +26,23 @@ const WeddingInvitation = () => {
     drinks: [] as string[]
   });
 
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [audio] = useState(() => {
+    const audioElement = new Audio('https://cdn.poehali.dev/files/macan-neuzheli-eto-vse-lyubov.mp3');
+    audioElement.loop = true;
+    audioElement.volume = 0.3;
+    return audioElement;
+  });
+
+  const toggleMusic = () => {
+    if (isPlaying) {
+      audio.pause();
+    } else {
+      audio.play().catch(err => console.log('Audio play failed:', err));
+    }
+    setIsPlaying(!isPlaying);
+  };
+
   useEffect(() => {
     const timer = setInterval(() => {
       const now = new Date().getTime();
@@ -72,6 +89,14 @@ const WeddingInvitation = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      
+      <button
+        onClick={toggleMusic}
+        className="fixed top-6 right-6 z-50 w-14 h-14 rounded-full bg-primary/90 backdrop-blur-sm flex items-center justify-center shadow-lg hover:bg-primary transition-all hover:scale-110"
+        aria-label={isPlaying ? 'Выключить музыку' : 'Включить музыку'}
+      >
+        <Icon name={isPlaying ? 'Volume2' : 'VolumeX'} size={24} className="text-primary-foreground" />
+      </button>
       
       <section 
         className="relative min-h-screen flex items-center justify-center bg-cover bg-center bg-no-repeat"
