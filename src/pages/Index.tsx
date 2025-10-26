@@ -37,41 +37,41 @@ const WeddingInvitation = () => {
     audioElement.preload = 'auto';
     setAudio(audioElement);
 
-    let autoplayAttempted = false;
+    let started = false;
 
-    const startAudio = () => {
-      if (!autoplayAttempted) {
-        autoplayAttempted = true;
-        audioElement.currentTime = 37;
+    const tryPlay = () => {
+      if (!started && audioElement.paused) {
+        started = true;
+        if (audioElement.currentTime === 0) {
+          audioElement.currentTime = 37;
+        }
         audioElement.play()
           .then(() => setIsPlaying(true))
-          .catch(() => {});
-        document.removeEventListener('click', startAudio, true);
-        document.removeEventListener('touchstart', startAudio, true);
-        document.removeEventListener('keydown', startAudio, true);
+          .catch(() => {
+            started = false;
+          });
       }
     };
 
-    document.addEventListener('click', startAudio, true);
-    document.addEventListener('touchstart', startAudio, true);
-    document.addEventListener('keydown', startAudio, true);
+    const events = ['click', 'touchstart', 'touchend', 'scroll', 'keydown', 'mousemove'];
+    events.forEach(event => {
+      document.addEventListener(event, tryPlay, { once: true, capture: true });
+    });
 
-    setTimeout(() => {
-      audioElement.currentTime = 37;
-      audioElement.play()
-        .then(() => {
-          setIsPlaying(true);
-          autoplayAttempted = true;
-        })
-        .catch(() => {});
-    }, 100);
+    audioElement.currentTime = 37;
+    audioElement.play()
+      .then(() => {
+        setIsPlaying(true);
+        started = true;
+      })
+      .catch(() => {});
 
     return () => {
       audioElement.pause();
       audioElement.src = '';
-      document.removeEventListener('click', startAudio, true);
-      document.removeEventListener('touchstart', startAudio, true);
-      document.removeEventListener('keydown', startAudio, true);
+      events.forEach(event => {
+        document.removeEventListener(event, tryPlay, true);
+      });
     };
   }, []);
 
