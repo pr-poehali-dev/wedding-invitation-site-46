@@ -5,6 +5,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import Icon from '@/components/ui/icon';
 import { useToast } from '@/hooks/use-toast';
+import Divider from '@/components/Divider';
 
 const WeddingInvitation = () => {
   const { toast } = useToast();
@@ -86,6 +87,8 @@ const WeddingInvitation = () => {
         </div>
       </section>
 
+      <Divider />
+
       <section className="py-20 md:py-32 bg-gradient-to-b from-background to-secondary/20">
         <div className="container max-w-5xl mx-auto px-4">
           <Card className="p-10 md:p-16 bg-card/90 backdrop-blur-sm shadow-2xl border-accent/30 animate-fade-in">
@@ -131,6 +134,8 @@ const WeddingInvitation = () => {
           </Card>
         </div>
       </section>
+
+      <Divider />
 
       <section className="py-20 md:py-32 bg-secondary/20">
         <div className="container max-w-4xl mx-auto px-4">
@@ -178,6 +183,8 @@ const WeddingInvitation = () => {
         </div>
       </section>
 
+      <Divider />
+
       <section className="py-20 md:py-32 bg-gradient-to-b from-secondary/20 to-background">
         <div className="container max-w-3xl mx-auto px-4">
           <div className="text-center mb-16 animate-fade-in">
@@ -216,6 +223,8 @@ const WeddingInvitation = () => {
           </div>
         </div>
       </section>
+
+      <Divider />
 
       <section className="py-20 md:py-32 bg-secondary/20">
         <div className="container max-w-2xl mx-auto px-4">
