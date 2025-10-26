@@ -31,7 +31,7 @@ const WeddingInvitation = () => {
 
   useEffect(() => {
     const audioElement = new Audio();
-    audioElement.src = 'https://disk.yandex.ru/d/9mgtKbn5NqbIfg';
+    audioElement.src = 'https://rus.hitmotop.com/get/music/20250718/Macan_Navai_-_Neuzheli_jeto_vse_lyubov_79311746.mp3';
     audioElement.loop = true;
     audioElement.volume = 0.3;
     audioElement.preload = 'auto';
