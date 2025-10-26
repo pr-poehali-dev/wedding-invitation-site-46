@@ -395,7 +395,7 @@ const WeddingInvitation = () => {
             </h2>
             <div className="h-px w-32 bg-rose-300 mx-auto mb-8"></div>
             <p className="text-xl text-rose-700 font-light leading-relaxed max-w-xl mx-auto">
-              Будем рады видеть вас на нашем празднике.<br/>Пожалуйста, заполните форму ниже
+              Будем рады видеть вас на нашем празднике.<br/>Пожалуйста, подтвердите участие до 3 ноября 2025
             </p>
           </div>
           
