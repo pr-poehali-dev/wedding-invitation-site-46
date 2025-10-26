@@ -122,7 +122,7 @@ const WeddingInvitation = () => {
       </button>
       
       <section 
-        className="relative min-h-screen flex items-start justify-center bg-cover bg-center bg-no-repeat pt-32 md:pt-40"
+        className="relative min-h-screen flex items-start justify-center bg-cover bg-center bg-no-repeat pt-16 md:pt-20"
         style={{ 
           backgroundImage: 'url(https://cdn.poehali.dev/projects/fa5d2723-1c80-43cf-b863-841e187d3b22/files/cafb2357-2b72-452e-b457-6e6791f964af.jpg)',
         }}
@@ -133,7 +133,7 @@ const WeddingInvitation = () => {
           <div className="mb-8 animate-float">
             <Icon name="Heart" size={56} className="mx-auto text-primary" />
           </div>
-          <h1 className="text-7xl md:text-9xl font-serif font-light text-primary mb-32 md:mb-40 tracking-wider text-center">Ксения & Владимир</h1>
+          <h1 className="text-7xl md:text-9xl font-serif font-light text-primary mb-48 md:mb-56 tracking-wider text-center">Ксения & Владимир</h1>
           <div className="h-px w-32 bg-primary/40 mx-auto mb-6"></div>
           <p className="text-2xl md:text-3xl text-foreground font-light tracking-[0.3em]">
             15 • 07 • 2025
