@@ -276,7 +276,8 @@ const WeddingInvitation = () => {
           <img 
             src="https://cdn.poehali.dev/files/cf92b069-54dd-42ee-8cfe-1d04b4a5c9aa.jpg" 
             alt="Место проведения свадьбы"
-            className="w-full h-[600px] md:h-[700px] object-cover"
+            className="w-full h-[600px] md:h-[700px] object-cover object-center"
+            style={{ objectPosition: '55% center' }}
           />
           
           <div className="absolute inset-0 flex items-end justify-center pb-8 md:pb-16">
