@@ -157,6 +157,63 @@ const WeddingInvitation = () => {
             радость особенного для нас события и<br/>
             стать частью нашей семейной истории
           </p>
+          
+          <div className="mt-16 max-w-md mx-auto">
+            <h3 className="text-2xl font-serif text-primary mb-6 font-light">Ноябрь 2024</h3>
+            <div className="grid grid-cols-7 gap-2">
+              <div className="text-sm font-light text-muted-foreground py-2">Пн</div>
+              <div className="text-sm font-light text-muted-foreground py-2">Вт</div>
+              <div className="text-sm font-light text-muted-foreground py-2">Ср</div>
+              <div className="text-sm font-light text-muted-foreground py-2">Чт</div>
+              <div className="text-sm font-light text-muted-foreground py-2">Пт</div>
+              <div className="text-sm font-light text-muted-foreground py-2">Сб</div>
+              <div className="text-sm font-light text-muted-foreground py-2">Вс</div>
+              
+              <div className="text-sm font-light text-foreground py-2"></div>
+              <div className="text-sm font-light text-foreground py-2"></div>
+              <div className="text-sm font-light text-foreground py-2"></div>
+              <div className="text-sm font-light text-foreground py-2"></div>
+              <div className="text-sm font-light text-foreground py-2">1</div>
+              <div className="text-sm font-light text-foreground py-2">2</div>
+              <div className="text-sm font-light text-foreground py-2">3</div>
+              
+              <div className="text-sm font-light text-foreground py-2">4</div>
+              <div className="text-sm font-light text-foreground py-2">5</div>
+              <div className="text-sm font-light text-foreground py-2">6</div>
+              <div className="text-sm font-light text-foreground py-2">7</div>
+              <div className="text-sm font-light text-foreground py-2">8</div>
+              <div className="text-sm font-light text-foreground py-2">9</div>
+              <div className="text-sm font-light text-foreground py-2">10</div>
+              
+              <div className="text-sm font-light text-foreground py-2">11</div>
+              <div className="text-sm font-light text-foreground py-2">12</div>
+              <div className="text-sm font-light text-foreground py-2">13</div>
+              <div className="text-sm font-light text-foreground py-2">14</div>
+              <div className="text-sm font-light text-foreground py-2">15</div>
+              <div className="text-sm font-light text-foreground py-2">16</div>
+              <div className="text-sm font-light text-foreground py-2">17</div>
+              
+              <div className="text-sm font-light text-foreground py-2">18</div>
+              <div className="text-sm font-light text-foreground py-2">19</div>
+              <div className="text-sm font-light text-foreground py-2">20</div>
+              <div className="text-sm font-light text-foreground py-2">21</div>
+              <div className="text-sm font-light text-foreground py-2">22</div>
+              <div className="text-sm font-light text-foreground py-2">23</div>
+              <div className="text-sm font-light text-foreground py-2">24</div>
+              
+              <div className="text-sm font-light text-foreground py-2">25</div>
+              <div className="text-sm font-light text-foreground py-2">26</div>
+              <div className="text-sm font-light text-foreground py-2">27</div>
+              <div className="relative text-sm font-light py-2 flex items-center justify-center">
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <Icon name="Heart" size={40} className="text-gray-400/40 fill-gray-400/30" />
+                </div>
+                <span className="relative z-10 text-foreground font-medium">28</span>
+              </div>
+              <div className="text-sm font-light text-foreground py-2">29</div>
+              <div className="text-sm font-light text-foreground py-2">30</div>
+            </div>
+          </div>
         </div>
       </section>
 
