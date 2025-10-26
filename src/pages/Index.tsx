@@ -95,13 +95,40 @@ const WeddingInvitation = () => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast({
-      title: "Спасибо за подтверждение!",
-      description: "Мы с нетерпением ждем встречи с вами",
-    });
-    setFormData({ name: '', guests: '', message: '', drinks: [] });
+    
+    try {
+      const response = await fetch('https://functions.poehali.dev/5c89658f-dfb2-4bc6-ad8b-3bfd9733668c', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          guests_count: parseInt(formData.guests) || 1,
+          attendance: 'yes',
+          dietary_restrictions: formData.drinks.join(', '),
+          message: formData.message
+        })
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to submit RSVP');
+      }
+
+      toast({
+        title: "Спасибо за подтверждение!",
+        description: "Мы с нетерпением ждем встречи с вами",
+      });
+      setFormData({ name: '', guests: '', message: '', drinks: [] });
+    } catch (error) {
+      toast({
+        title: "Ошибка",
+        description: "Не удалось отправить форму. Попробуйте еще раз.",
+        variant: "destructive"
+      });
+    }
   };
 
   const schedule = [

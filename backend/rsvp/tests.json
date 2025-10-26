@@ -1,0 +1,27 @@
+{
+  "tests": [
+    {
+      "name": "Save RSVP response",
+      "method": "POST",
+      "path": "/",
+      "body": {
+        "name": "Иван Иванов",
+        "guests_count": 2,
+        "attendance": "yes",
+        "dietary_restrictions": "Без орехов",
+        "message": "С нетерпением ждем!"
+      },
+      "expectedStatus": 200,
+      "expectedBody": {
+        "success": true
+      },
+      "bodyMatcher": "partial"
+    },
+    {
+      "name": "Handle OPTIONS request",
+      "method": "OPTIONS",
+      "path": "/",
+      "expectedStatus": 200
+    }
+  ]
+}
