@@ -10,7 +10,7 @@ import Divider from '@/components/Divider';
 
 const WeddingInvitation = () => {
   const { toast } = useToast();
-  const weddingDate = new Date('2025-07-15T16:00:00');
+  const weddingDate = new Date('2025-11-28T16:00:00');
   
   const [timeLeft, setTimeLeft] = useState({
     days: 0,

@@ -19,7 +19,7 @@ const HeroSection = () => {
         </h1>
         <div className="h-px w-32 bg-primary/40 mx-auto mb-6"></div>
         <p className="text-2xl md:text-3xl text-foreground font-light tracking-[0.3em]">
-          15 • 07 • 2025
+          28 • 11 • 2025
         </p>
         <p className="mt-6 text-xl md:text-2xl text-muted-foreground font-light italic">
           Приглашаем вас разделить с нами этот особенный день

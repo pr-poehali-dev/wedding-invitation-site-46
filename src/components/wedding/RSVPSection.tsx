@@ -34,7 +34,7 @@ const RSVPSection = ({ formData, onFormDataChange, onDrinkToggle, onSubmit }: RS
           Подтверждение присутствия
         </h2>
         <p className="text-center text-muted-foreground mb-12">
-          Пожалуйста, подтвердите ваше участие до 1 июля 2025
+          Пожалуйста, подтвердите ваше участие до 1 ноября 2025
         </p>
         
         <Card className="p-8 border-primary/20">
