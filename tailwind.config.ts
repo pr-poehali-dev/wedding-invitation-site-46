@@ -69,7 +69,7 @@ export default {
 				sm: 'calc(var(--radius) - 4px)'
 			},
 			fontFamily: {
-				'script': ['Allura', 'cursive'],
+				'script': ['Great Vibes', 'cursive'],
 				'handwritten': ['Dancing Script', 'cursive'],
 				'serif': ['Playfair Display', 'serif'],
 				'sans': ['Montserrat', 'sans-serif']
