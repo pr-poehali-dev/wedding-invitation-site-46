@@ -1,4 +1,5 @@
 {
+  "clear-rsvps": "https://functions.poehali.dev/fc017363-e56e-48b9-b222-a6dd8008640d",
   "get-rsvps": "https://functions.poehali.dev/31bff099-c6af-4bd8-9c86-f32d00c82ff5",
   "rsvp-list": "https://functions.poehali.dev/acc612ee-3bf1-46b7-8134-a78c85ab7d7c",
   "rsvp": "https://functions.poehali.dev/5c89658f-dfb2-4bc6-ad8b-3bfd9733668c"

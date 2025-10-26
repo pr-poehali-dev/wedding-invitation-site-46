@@ -1,0 +1,15 @@
+{
+  "tests": [
+    {
+      "name": "Clear all RSVPs",
+      "method": "POST",
+      "path": "/",
+      "expectedStatus": 200,
+      "expectedBody": {
+        "success": "boolean",
+        "deleted": "number"
+      },
+      "bodyMatcher": "partial"
+    }
+  ]
+}
