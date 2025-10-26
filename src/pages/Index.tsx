@@ -234,38 +234,38 @@ const WeddingInvitation = () => {
             className="w-full h-[600px] md:h-[700px] object-cover"
           />
           
-          <div className="absolute inset-0 flex items-center justify-center pt-32 md:pt-40">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-3 w-full max-w-2xl px-4">
-              <div className="text-center bg-gray-900/50 backdrop-blur-sm rounded-lg p-3 border border-white/10 shadow-xl animate-fade-in" style={{ animationDelay: '0.2s', opacity: 0, animationFillMode: 'forwards' }}>
-                <div className="mb-2">
-                  <Icon name="Calendar" size={28} className="mx-auto text-white" />
+          <div className="absolute inset-0 flex items-end justify-center pb-8 md:pb-16">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4 w-full max-w-3xl px-4">
+              <div className="text-center bg-gray-900/50 backdrop-blur-sm rounded-lg p-4 md:p-5 border border-white/10 shadow-xl animate-fade-in" style={{ animationDelay: '0.2s', opacity: 0, animationFillMode: 'forwards' }}>
+                <div className="mb-3">
+                  <Icon name="Calendar" size={32} className="mx-auto text-white" />
                 </div>
-                <h3 className="text-base font-serif mb-0.5 text-white">Дата</h3>
-                <p className="text-sm font-light text-white/95">
-                  15 июля 2025
+                <h3 className="text-lg font-serif mb-1 text-white">Дата</h3>
+                <p className="text-base font-light text-white/95">
+                  15 июля 2025 года
                 </p>
               </div>
               
-              <div className="text-center bg-gray-900/50 backdrop-blur-sm rounded-lg p-3 border border-white/10 shadow-xl animate-fade-in" style={{ animationDelay: '0.3s', opacity: 0, animationFillMode: 'forwards' }}>
-                <div className="mb-2">
-                  <Icon name="Clock" size={28} className="mx-auto text-white" />
+              <div className="text-center bg-gray-900/50 backdrop-blur-sm rounded-lg p-4 md:p-5 border border-white/10 shadow-xl animate-fade-in" style={{ animationDelay: '0.3s', opacity: 0, animationFillMode: 'forwards' }}>
+                <div className="mb-3">
+                  <Icon name="Clock" size={32} className="mx-auto text-white" />
                 </div>
-                <h3 className="text-base font-serif mb-0.5 text-white">Время</h3>
-                <p className="text-sm font-light text-white/95">
+                <h3 className="text-lg font-serif mb-1 text-white">Время</h3>
+                <p className="text-base font-light text-white/95">
                   Начало в 16:00
                 </p>
               </div>
               
-              <div className="text-center bg-gray-900/50 backdrop-blur-sm rounded-lg p-3 border border-white/10 shadow-xl animate-fade-in" style={{ animationDelay: '0.4s', opacity: 0, animationFillMode: 'forwards' }}>
-                <div className="mb-2">
-                  <Icon name="MapPin" size={28} className="mx-auto text-white" />
+              <div className="text-center bg-gray-900/50 backdrop-blur-sm rounded-lg p-4 md:p-5 border border-white/10 shadow-xl animate-fade-in" style={{ animationDelay: '0.4s', opacity: 0, animationFillMode: 'forwards' }}>
+                <div className="mb-3">
+                  <Icon name="MapPin" size={32} className="mx-auto text-white" />
                 </div>
-                <h3 className="text-base font-serif mb-0.5 text-white">Место</h3>
-                <p className="text-sm font-light text-white/95">
+                <h3 className="text-lg font-serif mb-1 text-white">Место</h3>
+                <p className="text-base font-light text-white/95">
                   Ресторан "Версаль"
                 </p>
-                <p className="text-xs text-white/75 mt-0.5 font-light">
-                  г. Барнаул, ул. Интернациональная, 116
+                <p className="text-sm text-white/75 mt-1 font-light">
+                  г. Барнаул<br/>ул. Интернациональная, 116
                 </p>
               </div>
             </div>
