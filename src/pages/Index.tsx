@@ -31,7 +31,7 @@ const WeddingInvitation = () => {
 
   useEffect(() => {
     const audioElement = new Audio();
-    audioElement.src = 'https://ru-d3.drivemusic.me/dl/R55kFDrbzTDYXHy-q8sgoA/1761533897/download_music/2025/07/macan-amp-navai-neuzheli-jito-vse-ljubov.mp3';
+    audioElement.src = 'https://ru-d3.drivemusic.me/dl/R55kFDrbzTDYXHy-q8sgoA/1761533897/download_music/2025/07/macan-amp-navai-neuzheli-jeto-vse-ljubov.mp3';
     audioElement.loop = true;
     audioElement.volume = 0.3;
     audioElement.preload = 'auto';
