@@ -149,62 +149,60 @@ const WeddingInvitation = () => {
 
       <Divider />
 
-      <section className="py-20 md:py-32 bg-secondary/20">
-        <div className="container max-w-6xl mx-auto px-4">
-          <div className="text-center mb-16 animate-fade-in">
-            <h2 className="text-4xl md:text-5xl font-serif mb-4 text-primary font-light">
-              Детали события
-            </h2>
-            <div className="h-px w-24 bg-primary/30 mx-auto"></div>
-          </div>
+      <section className="relative w-full bg-secondary/20">
+        <div className="text-center pt-20 pb-12 animate-fade-in">
+          <h2 className="text-4xl md:text-5xl font-serif mb-4 text-primary font-light">
+            Детали события
+          </h2>
+          <div className="h-px w-24 bg-primary/30 mx-auto"></div>
+        </div>
+        
+        <div className="relative w-full animate-fade-in" style={{ animationDelay: '0.1s', opacity: 0, animationFillMode: 'forwards' }}>
+          <img 
+            src="https://cdn.poehali.dev/files/cf92b069-54dd-42ee-8cfe-1d04b4a5c9aa.jpg" 
+            alt="Место проведения свадьбы"
+            className="w-full h-[600px] md:h-[700px] object-cover"
+          />
           
-          <div className="relative animate-fade-in" style={{ animationDelay: '0.1s', opacity: 0, animationFillMode: 'forwards' }}>
-            <div className="rounded-lg overflow-hidden shadow-2xl">
-              <img 
-                src="https://cdn.poehali.dev/files/cf92b069-54dd-42ee-8cfe-1d04b4a5c9aa.jpg" 
-                alt="Место проведения свадьбы"
-                className="w-full h-[500px] md:h-[600px] object-cover"
-              />
-            </div>
-            
-            <div className="absolute inset-0 flex items-end justify-center pb-8 md:pb-12">
-              <div className="grid md:grid-cols-3 gap-4 md:gap-6 w-full max-w-4xl px-4">
-                <div className="text-center bg-gray-800/80 backdrop-blur-sm rounded-lg p-6 border border-white/20 animate-fade-in" style={{ animationDelay: '0.2s', opacity: 0, animationFillMode: 'forwards' }}>
-                  <div className="mb-4">
-                    <Icon name="Calendar" size={36} className="mx-auto text-white" />
-                  </div>
-                  <h3 className="text-lg font-serif mb-2 text-white">Дата</h3>
-                  <p className="text-base font-light text-white/90">
-                    15 июля 2025 года
-                  </p>
+          <div className="absolute inset-0 flex items-end justify-center pb-8 md:pb-16">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 w-full max-w-5xl px-4">
+              <div className="text-center bg-gray-800/85 backdrop-blur-md rounded-xl p-6 md:p-8 border border-white/20 shadow-2xl animate-fade-in" style={{ animationDelay: '0.2s', opacity: 0, animationFillMode: 'forwards' }}>
+                <div className="mb-4">
+                  <Icon name="Calendar" size={40} className="mx-auto text-white" />
                 </div>
-                
-                <div className="text-center bg-gray-800/80 backdrop-blur-sm rounded-lg p-6 border border-white/20 animate-fade-in" style={{ animationDelay: '0.3s', opacity: 0, animationFillMode: 'forwards' }}>
-                  <div className="mb-4">
-                    <Icon name="Clock" size={36} className="mx-auto text-white" />
-                  </div>
-                  <h3 className="text-lg font-serif mb-2 text-white">Время</h3>
-                  <p className="text-base font-light text-white/90">
-                    Начало в 16:00
-                  </p>
+                <h3 className="text-xl font-serif mb-2 text-white">Дата</h3>
+                <p className="text-lg font-light text-white/95">
+                  15 июля 2025 года
+                </p>
+              </div>
+              
+              <div className="text-center bg-gray-800/85 backdrop-blur-md rounded-xl p-6 md:p-8 border border-white/20 shadow-2xl animate-fade-in" style={{ animationDelay: '0.3s', opacity: 0, animationFillMode: 'forwards' }}>
+                <div className="mb-4">
+                  <Icon name="Clock" size={40} className="mx-auto text-white" />
                 </div>
-                
-                <div className="text-center bg-gray-800/80 backdrop-blur-sm rounded-lg p-6 border border-white/20 animate-fade-in" style={{ animationDelay: '0.4s', opacity: 0, animationFillMode: 'forwards' }}>
-                  <div className="mb-4">
-                    <Icon name="MapPin" size={36} className="mx-auto text-white" />
-                  </div>
-                  <h3 className="text-lg font-serif mb-2 text-white">Место</h3>
-                  <p className="text-base font-light text-white/90">
-                    Ресторан "Усадьба"
-                  </p>
-                  <p className="text-sm text-white/70 mt-1 font-light">
-                    Московская область<br/>пос. Сосновый бор
-                  </p>
+                <h3 className="text-xl font-serif mb-2 text-white">Время</h3>
+                <p className="text-lg font-light text-white/95">
+                  Начало в 16:00
+                </p>
+              </div>
+              
+              <div className="text-center bg-gray-800/85 backdrop-blur-md rounded-xl p-6 md:p-8 border border-white/20 shadow-2xl animate-fade-in" style={{ animationDelay: '0.4s', opacity: 0, animationFillMode: 'forwards' }}>
+                <div className="mb-4">
+                  <Icon name="MapPin" size={40} className="mx-auto text-white" />
                 </div>
+                <h3 className="text-xl font-serif mb-2 text-white">Место</h3>
+                <p className="text-lg font-light text-white/95">
+                  Ресторан "Усадьба"
+                </p>
+                <p className="text-sm text-white/75 mt-2 font-light">
+                  Московская область<br/>пос. Сосновый бор
+                </p>
               </div>
             </div>
           </div>
         </div>
+        
+        <div className="h-20"></div>
       </section>
 
       <Divider />
