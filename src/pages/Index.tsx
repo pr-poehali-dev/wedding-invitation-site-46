@@ -423,6 +423,9 @@ const WeddingInvitation = () => {
                 <p className="text-sm text-white/75 mt-1 font-light">
                   г. Барнаул<br/>ул. Интернациональная, 116
                 </p>
+                <p className="text-xs text-white/60 mt-2 font-light italic">
+                  Церемония: Загс №2, Пр. Комсомольский 108а
+                </p>
               </div>
             </div>
           </div>
