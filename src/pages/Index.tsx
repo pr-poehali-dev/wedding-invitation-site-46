@@ -108,47 +108,6 @@ const WeddingInvitation = () => {
 
       <Divider />
 
-      <section className="py-20 md:py-32 bg-gradient-to-b from-secondary/20 to-background">
-        <div className="container max-w-3xl mx-auto px-4">
-          <div className="text-center mb-16 animate-fade-in">
-            <h2 className="text-4xl md:text-5xl font-serif mb-4 text-primary font-light">
-              Программа дня
-            </h2>
-            <div className="h-px w-24 bg-primary/30 mx-auto"></div>
-          </div>
-          
-          <div className="space-y-8">
-            {schedule.map((item, index) => (
-              <div 
-                key={index} 
-                className="flex items-start gap-6 md:gap-8 group animate-fade-in"
-                style={{ animationDelay: `${index * 0.1}s`, opacity: 0, animationFillMode: 'forwards' }}
-              >
-                <div className="flex-shrink-0 w-20 md:w-24 text-right pt-2">
-                  <span className="text-xl md:text-2xl font-serif font-light text-primary">
-                    {item.time}
-                  </span>
-                </div>
-                
-                <div className="flex-shrink-0 mt-2">
-                  <div className="w-12 h-12 rounded-full bg-accent/40 flex items-center justify-center group-hover:bg-accent/60 transition-all group-hover:scale-110">
-                    <Icon name={item.icon as any} size={22} className="text-primary" />
-                  </div>
-                </div>
-                
-                <div className="flex-grow pt-2">
-                  <p className="text-xl md:text-2xl font-light text-foreground">
-                    {item.event}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <Divider />
-
       <section className="py-16 md:py-24 bg-background">
         <div className="container max-w-3xl mx-auto px-4 text-center animate-fade-in">
           <p className="text-2xl md:text-3xl font-serif text-primary leading-relaxed font-light">
@@ -206,13 +165,54 @@ const WeddingInvitation = () => {
               <div className="text-sm font-light text-foreground py-2">27</div>
               <div className="relative text-sm font-light py-2 flex items-center justify-center">
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <Icon name="Heart" size={40} className="text-gray-400/40 fill-gray-400/30" />
+                  <Icon name="Heart" size={40} className="text-pink-300/60 fill-pink-300/50" />
                 </div>
                 <span className="relative z-10 text-foreground font-medium">28</span>
               </div>
               <div className="text-sm font-light text-foreground py-2">29</div>
               <div className="text-sm font-light text-foreground py-2">30</div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <Divider />
+
+      <section className="py-20 md:py-32 bg-gradient-to-b from-secondary/20 to-background">
+        <div className="container max-w-3xl mx-auto px-4">
+          <div className="text-center mb-16 animate-fade-in">
+            <h2 className="text-4xl md:text-5xl font-serif mb-4 text-primary font-light">
+              Программа дня
+            </h2>
+            <div className="h-px w-24 bg-primary/30 mx-auto"></div>
+          </div>
+          
+          <div className="space-y-8">
+            {schedule.map((item, index) => (
+              <div 
+                key={index} 
+                className="flex items-start gap-6 md:gap-8 group animate-fade-in"
+                style={{ animationDelay: `${index * 0.1}s`, opacity: 0, animationFillMode: 'forwards' }}
+              >
+                <div className="flex-shrink-0 w-20 md:w-24 text-right pt-2">
+                  <span className="text-xl md:text-2xl font-serif font-light text-primary">
+                    {item.time}
+                  </span>
+                </div>
+                
+                <div className="flex-shrink-0 mt-2">
+                  <div className="w-12 h-12 rounded-full bg-accent/40 flex items-center justify-center group-hover:bg-accent/60 transition-all group-hover:scale-110">
+                    <Icon name={item.icon as any} size={22} className="text-primary" />
+                  </div>
+                </div>
+                
+                <div className="flex-grow pt-2">
+                  <p className="text-xl md:text-2xl font-light text-foreground">
+                    {item.event}
+                  </p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
