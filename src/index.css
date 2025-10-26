@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Great+Vibes&family=Dancing+Script:wght@400;500;600;700&family=Playfair+Display:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -99,23 +99,19 @@
 
   body {
     @apply bg-background text-foreground;
-    font-family: "Montserrat", sans-serif;
+    font-family:
+      system-ui,
+      -apple-system,
+      sans-serif;
   }
 
-  h1 {
-    font-family: "Great Vibes", cursive;
-    letter-spacing: 0.02em;
-  }
-
-  h2 {
-    font-family: "Dancing Script", cursive;
-    font-weight: 600;
-  }
-
+  h1,
+  h2,
   h3,
   h4,
   h5,
   h6 {
-    font-family: "Playfair Display", serif;
+    font-family: "Great Vibes", cursive;
+    letter-spacing: 0.02em;
   }
 }
