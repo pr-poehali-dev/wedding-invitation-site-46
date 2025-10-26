@@ -3,6 +3,7 @@ import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
+import { Checkbox } from '@/components/ui/checkbox';
 import Icon from '@/components/ui/icon';
 import { useToast } from '@/hooks/use-toast';
 import Divider from '@/components/Divider';
@@ -21,7 +22,8 @@ const WeddingInvitation = () => {
   const [formData, setFormData] = useState({
     name: '',
     guests: '',
-    message: ''
+    message: '',
+    drinks: [] as string[]
   });
 
   useEffect(() => {
@@ -42,13 +44,22 @@ const WeddingInvitation = () => {
     return () => clearInterval(timer);
   }, []);
 
+  const handleDrinkToggle = (drink: string) => {
+    setFormData(prev => ({
+      ...prev,
+      drinks: prev.drinks.includes(drink)
+        ? prev.drinks.filter(d => d !== drink)
+        : [...prev.drinks, drink]
+    }));
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     toast({
       title: "Спасибо за подтверждение!",
       description: "Мы с нетерпением ждем встречи с вами",
     });
-    setFormData({ name: '', guests: '', message: '' });
+    setFormData({ name: '', guests: '', message: '', drinks: [] });
   };
 
   const schedule = [
@@ -85,53 +96,54 @@ const WeddingInvitation = () => {
             Приглашаем вас разделить с нами этот особенный день
           </p>
         </div>
+        
+        <button 
+          onClick={() => window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })}
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 animate-bounce"
+          aria-label="Прокрутить вниз"
+        >
+          <Icon name="ChevronDown" size={40} className="text-primary/70 hover:text-primary transition-colors" />
+        </button>
       </section>
 
       <Divider />
 
-      <section className="py-20 md:py-32 bg-gradient-to-b from-background to-secondary/20">
-        <div className="container max-w-5xl mx-auto px-4">
-          <Card className="p-10 md:p-16 bg-card/90 backdrop-blur-sm shadow-2xl border-accent/30 animate-fade-in">
-            <h2 className="text-4xl md:text-5xl font-serif text-center mb-4 text-primary font-light">
-              До нашего счастливого дня
+      <section className="py-20 md:py-32 bg-gradient-to-b from-secondary/20 to-background">
+        <div className="container max-w-3xl mx-auto px-4">
+          <div className="text-center mb-16 animate-fade-in">
+            <h2 className="text-4xl md:text-5xl font-serif mb-4 text-primary font-light">
+              Программа дня
             </h2>
-            <div className="h-px w-24 bg-primary/30 mx-auto mb-12"></div>
-            
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-12">
-              <div className="text-center">
-                <div className="text-5xl md:text-7xl font-serif text-primary mb-3 font-light">
-                  {timeLeft.days}
+            <div className="h-px w-24 bg-primary/30 mx-auto"></div>
+          </div>
+          
+          <div className="space-y-8">
+            {schedule.map((item, index) => (
+              <div 
+                key={index} 
+                className="flex items-start gap-6 md:gap-8 group animate-fade-in"
+                style={{ animationDelay: `${index * 0.1}s`, opacity: 0, animationFillMode: 'forwards' }}
+              >
+                <div className="flex-shrink-0 w-20 md:w-24 text-right pt-2">
+                  <span className="text-xl md:text-2xl font-serif font-light text-primary">
+                    {item.time}
+                  </span>
                 </div>
-                <div className="text-sm md:text-base text-muted-foreground uppercase tracking-widest font-light">
-                  дней
+                
+                <div className="flex-shrink-0 mt-2">
+                  <div className="w-12 h-12 rounded-full bg-accent/40 flex items-center justify-center group-hover:bg-accent/60 transition-all group-hover:scale-110">
+                    <Icon name={item.icon as any} size={22} className="text-primary" />
+                  </div>
                 </div>
-              </div>
-              <div className="text-center">
-                <div className="text-5xl md:text-7xl font-serif text-primary mb-3 font-light">
-                  {timeLeft.hours}
-                </div>
-                <div className="text-sm md:text-base text-muted-foreground uppercase tracking-widest font-light">
-                  часов
-                </div>
-              </div>
-              <div className="text-center">
-                <div className="text-5xl md:text-7xl font-serif text-primary mb-3 font-light">
-                  {timeLeft.minutes}
-                </div>
-                <div className="text-sm md:text-base text-muted-foreground uppercase tracking-widest font-light">
-                  минут
-                </div>
-              </div>
-              <div className="text-center">
-                <div className="text-5xl md:text-7xl font-serif text-primary mb-3 font-light">
-                  {timeLeft.seconds}
-                </div>
-                <div className="text-sm md:text-base text-muted-foreground uppercase tracking-widest font-light">
-                  секунд
+                
+                <div className="flex-grow pt-2">
+                  <p className="text-xl md:text-2xl font-light text-foreground">
+                    {item.event}
+                  </p>
                 </div>
               </div>
-            </div>
-          </Card>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -185,42 +197,56 @@ const WeddingInvitation = () => {
 
       <Divider />
 
-      <section className="py-20 md:py-32 bg-gradient-to-b from-secondary/20 to-background">
-        <div className="container max-w-3xl mx-auto px-4">
-          <div className="text-center mb-16 animate-fade-in">
-            <h2 className="text-4xl md:text-5xl font-serif mb-4 text-primary font-light">
-              Программа дня
+      <section 
+        className="relative py-20 md:py-32 bg-cover bg-center bg-no-repeat"
+        style={{ 
+          backgroundImage: 'url(https://cdn.poehali.dev/projects/fa5d2723-1c80-43cf-b863-841e187d3b22/files/00b05cb9-cb7c-421e-9cb4-4fb27f10a0d0.jpg)',
+        }}
+      >
+        <div className="absolute inset-0 bg-background/30 backdrop-blur-[1px]"></div>
+        
+        <div className="relative z-10 container max-w-5xl mx-auto px-4">
+          <Card className="p-10 md:p-16 bg-card/90 backdrop-blur-sm shadow-2xl border-accent/30 animate-fade-in">
+            <h2 className="text-4xl md:text-5xl font-serif text-center mb-4 text-primary font-light">
+              До нашего счастливого дня
             </h2>
-            <div className="h-px w-24 bg-primary/30 mx-auto"></div>
-          </div>
-          
-          <div className="space-y-8">
-            {schedule.map((item, index) => (
-              <div 
-                key={index} 
-                className="flex items-start gap-6 md:gap-8 group animate-fade-in"
-                style={{ animationDelay: `${index * 0.1}s`, opacity: 0, animationFillMode: 'forwards' }}
-              >
-                <div className="flex-shrink-0 w-20 md:w-24 text-right pt-2">
-                  <span className="text-xl md:text-2xl font-serif font-light text-primary">
-                    {item.time}
-                  </span>
+            <div className="h-px w-24 bg-primary/30 mx-auto mb-12"></div>
+            
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-12">
+              <div className="text-center">
+                <div className="text-5xl md:text-7xl font-serif text-primary mb-3 font-light">
+                  {timeLeft.days}
                 </div>
-                
-                <div className="flex-shrink-0 mt-2">
-                  <div className="w-12 h-12 rounded-full bg-accent/40 flex items-center justify-center group-hover:bg-accent/60 transition-all group-hover:scale-110">
-                    <Icon name={item.icon as any} size={22} className="text-primary" />
-                  </div>
-                </div>
-                
-                <div className="flex-grow pt-2">
-                  <p className="text-xl md:text-2xl font-light text-foreground">
-                    {item.event}
-                  </p>
+                <div className="text-sm md:text-base text-muted-foreground uppercase tracking-widest font-light">
+                  дней
                 </div>
               </div>
-            ))}
-          </div>
+              <div className="text-center">
+                <div className="text-5xl md:text-7xl font-serif text-primary mb-3 font-light">
+                  {timeLeft.hours}
+                </div>
+                <div className="text-sm md:text-base text-muted-foreground uppercase tracking-widest font-light">
+                  часов
+                </div>
+              </div>
+              <div className="text-center">
+                <div className="text-5xl md:text-7xl font-serif text-primary mb-3 font-light">
+                  {timeLeft.minutes}
+                </div>
+                <div className="text-sm md:text-base text-muted-foreground uppercase tracking-widest font-light">
+                  минут
+                </div>
+              </div>
+              <div className="text-center">
+                <div className="text-5xl md:text-7xl font-serif text-primary mb-3 font-light">
+                  {timeLeft.seconds}
+                </div>
+                <div className="text-sm md:text-base text-muted-foreground uppercase tracking-widest font-light">
+                  секунд
+                </div>
+              </div>
+            </div>
+          </Card>
         </div>
       </section>
 
@@ -266,6 +292,35 @@ const WeddingInvitation = () => {
                   placeholder="1"
                   className="bg-background/50 border-accent/40 focus:border-primary"
                 />
+              </div>
+              
+              <div>
+                <label className="block text-sm font-light text-foreground mb-3 tracking-wide">
+                  Ваши предпочтения по напиткам
+                </label>
+                <div className="space-y-3">
+                  {[
+                    { id: 'spirits', label: 'Крепкий алкоголь' },
+                    { id: 'white-wine', label: 'Белое вино' },
+                    { id: 'red-wine', label: 'Красное вино' },
+                    { id: 'champagne', label: 'Шампанское' },
+                    { id: 'non-alcoholic', label: 'Безалкогольные напитки' }
+                  ].map((drink) => (
+                    <div key={drink.id} className="flex items-center space-x-3">
+                      <Checkbox
+                        id={drink.id}
+                        checked={formData.drinks.includes(drink.id)}
+                        onCheckedChange={() => handleDrinkToggle(drink.id)}
+                      />
+                      <label
+                        htmlFor={drink.id}
+                        className="text-sm font-light cursor-pointer select-none"
+                      >
+                        {drink.label}
+                      </label>
+                    </div>
+                  ))}
+                </div>
               </div>
               
               <div>
