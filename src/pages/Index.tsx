@@ -35,6 +35,7 @@ const WeddingInvitation = () => {
     audioElement.loop = true;
     audioElement.volume = 0.3;
     audioElement.preload = 'auto';
+    audioElement.currentTime = 36;
     setAudio(audioElement);
 
     return () => {
@@ -50,6 +51,7 @@ const WeddingInvitation = () => {
       audio.pause();
       setIsPlaying(false);
     } else {
+      audio.currentTime = 36;
       const playPromise = audio.play();
       if (playPromise !== undefined) {
         playPromise
