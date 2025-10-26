@@ -28,7 +28,7 @@ const WeddingInvitation = () => {
 
   const [isPlaying, setIsPlaying] = useState(false);
   const [audio] = useState(() => {
-    const audioElement = new Audio('https://cdn.poehali.dev/files/macan-neuzheli-eto-vse-lyubov.mp3');
+    const audioElement = new Audio('https://drive.google.com/uc?export=download&id=1gNRNnMUumygd9yZ-mF_-ZiTDlNDICNL5');
     audioElement.loop = true;
     audioElement.volume = 0.3;
     return audioElement;
