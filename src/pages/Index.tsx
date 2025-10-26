@@ -529,7 +529,8 @@ const WeddingInvitation = () => {
             С любовью ждем вас на нашем празднике
           </p>
           <div className="h-px w-32 bg-primary/20 mx-auto mb-6"></div>
-          <p className="text-sm text-muted-foreground font-light tracking-wide">По всем вопросам: +7 (996) 951-90-85</p>
+          <p className="text-sm text-muted-foreground font-light tracking-wide">По всем вопросам: +7 (996) 951-90-85
+                                 +7 (906) 474-84-50</p>
         </div>
       </footer>
     </div>
