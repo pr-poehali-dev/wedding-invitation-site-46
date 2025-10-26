@@ -35,13 +35,18 @@ const WeddingInvitation = () => {
     audioElement.loop = true;
     audioElement.volume = 0.3;
     audioElement.preload = 'auto';
-    audioElement.currentTime = 37;
     setAudio(audioElement);
 
+    let hasStarted = false;
+
     const startAudio = () => {
-      if (audioElement.paused) {
+      if (audioElement.paused && !hasStarted) {
+        audioElement.currentTime = 37;
         audioElement.play()
-          .then(() => setIsPlaying(true))
+          .then(() => {
+            setIsPlaying(true);
+            hasStarted = true;
+          })
           .catch(() => {});
         document.removeEventListener('click', startAudio);
         document.removeEventListener('touchstart', startAudio);
@@ -49,9 +54,22 @@ const WeddingInvitation = () => {
       }
     };
 
+    const handleVisibilityChange = () => {
+      if (document.hidden) {
+        if (!audioElement.paused) {
+          audioElement.pause();
+        }
+      } else {
+        if (hasStarted && audioElement.paused) {
+          audioElement.play().catch(() => {});
+        }
+      }
+    };
+
     document.addEventListener('click', startAudio);
     document.addEventListener('touchstart', startAudio);
     document.addEventListener('scroll', startAudio);
+    document.addEventListener('visibilitychange', handleVisibilityChange);
 
     return () => {
       audioElement.pause();
@@ -59,6 +77,7 @@ const WeddingInvitation = () => {
       document.removeEventListener('click', startAudio);
       document.removeEventListener('touchstart', startAudio);
       document.removeEventListener('scroll', startAudio);
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
     };
   }, []);
 
