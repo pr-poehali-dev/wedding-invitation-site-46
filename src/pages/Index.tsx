@@ -187,15 +187,23 @@ const WeddingInvitation = () => {
       <Divider />
 
       <section className="py-12 md:py-16 bg-background">
-        <div className="container max-w-2xl mx-auto px-4 text-center animate-fade-in">
-          <p className="text-xl md:text-2xl font-serif text-primary leading-snug font-light">
-            Дорогие гости!<br/>
-            Приглашаем вас разделить с нами радость особенного<br className="hidden md:block"/> для нас события и стать частью нашей семейной истории
-          </p>
-          
-          <div className="mt-12 max-w-md mx-auto">
-            <h3 className="text-2xl font-serif text-primary mb-6 font-light">Ноябрь 2025</h3>
-            <div className="grid grid-cols-7 gap-2">
+        <div className="container max-w-2xl mx-auto px-4">
+          <Card className="p-8 md:p-12 bg-white shadow-2xl border-rose-100 overflow-hidden relative">
+            <div className="absolute inset-0 rounded-lg opacity-75 blur-xl" style={{
+              background: 'linear-gradient(90deg, #fda4af 0%, #fb7185 25%, #fda4af 50%, #fb7185 75%, #fda4af 100%)',
+              backgroundSize: '200% 100%',
+              animation: 'shimmer 3s linear infinite'
+            }}></div>
+            <div className="absolute inset-[2px] bg-white rounded-lg"></div>
+            <div className="relative z-10 text-center animate-fade-in">
+              <p className="text-xl md:text-2xl font-serif text-primary leading-snug font-light mb-12">
+                Дорогие гости!<br/>
+                Приглашаем вас разделить с нами радость особенного<br className="hidden md:block"/> для нас события и стать частью нашей семейной истории
+              </p>
+              
+              <div className="max-w-md mx-auto">
+                <h3 className="text-2xl font-serif text-primary mb-6 font-light">Ноябрь 2025</h3>
+                <div className="grid grid-cols-7 gap-2">
               <div className="text-sm font-light text-muted-foreground py-2">Пн</div>
               <div className="text-sm font-light text-muted-foreground py-2">Вт</div>
               <div className="text-sm font-light text-muted-foreground py-2">Ср</div>
@@ -248,7 +256,8 @@ const WeddingInvitation = () => {
               </div>
               <div className="text-sm font-light text-foreground py-2">29</div>
               <div className="text-sm font-light text-foreground py-2">30</div>
-            </div>
+                </div>
+              </div>
             </div>
           </Card>
         </div>
