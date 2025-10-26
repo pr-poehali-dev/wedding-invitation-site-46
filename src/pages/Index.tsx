@@ -38,9 +38,27 @@ const WeddingInvitation = () => {
     audioElement.currentTime = 37;
     setAudio(audioElement);
 
+    const startAudio = () => {
+      if (audioElement.paused) {
+        audioElement.play()
+          .then(() => setIsPlaying(true))
+          .catch(() => {});
+        document.removeEventListener('click', startAudio);
+        document.removeEventListener('touchstart', startAudio);
+        document.removeEventListener('scroll', startAudio);
+      }
+    };
+
+    document.addEventListener('click', startAudio);
+    document.addEventListener('touchstart', startAudio);
+    document.addEventListener('scroll', startAudio);
+
     return () => {
       audioElement.pause();
       audioElement.src = '';
+      document.removeEventListener('click', startAudio);
+      document.removeEventListener('touchstart', startAudio);
+      document.removeEventListener('scroll', startAudio);
     };
   }, []);
 
