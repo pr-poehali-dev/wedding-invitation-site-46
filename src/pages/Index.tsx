@@ -388,69 +388,81 @@ const WeddingInvitation = () => {
 
       <Divider />
 
-      <section className="py-20 md:py-32 bg-secondary/20">
-        <div className="container max-w-2xl mx-auto px-4">
-          <div className="text-center mb-12 animate-fade-in">
-            <h2 className="text-4xl md:text-5xl font-serif mb-4 text-primary font-light">
+      <section className="py-20 md:py-32 bg-gradient-to-b from-secondary/10 via-background to-secondary/10">
+        <div className="container max-w-3xl mx-auto px-4">
+          <div className="text-center mb-16 animate-fade-in">
+            <div className="mb-6">
+              <Icon name="Mail" size={48} className="mx-auto text-primary/70" />
+            </div>
+            <h2 className="text-4xl md:text-6xl font-serif mb-6 text-primary font-light">
               Подтверждение присутствия
             </h2>
-            <div className="h-px w-24 bg-primary/30 mx-auto mb-6"></div>
-            <p className="text-lg text-muted-foreground font-light">
-              Пожалуйста, сообщите нам о вашем присутствии
+            <div className="h-px w-32 bg-primary/30 mx-auto mb-8"></div>
+            <p className="text-xl text-muted-foreground font-light leading-relaxed max-w-xl mx-auto">
+              Будем рады видеть вас на нашем празднике.<br/>Пожалуйста, заполните форму ниже
             </p>
           </div>
           
-          <Card className="p-8 md:p-12 bg-card/90 backdrop-blur-sm shadow-xl border-accent/30 animate-fade-in" style={{ animationDelay: '0.2s', opacity: 0, animationFillMode: 'forwards' }}>
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
-                <label className="block text-sm font-light text-foreground mb-2 tracking-wide">
-                  Ваше имя *
-                </label>
-                <Input
-                  required
-                  value={formData.name}
-                  onChange={(e) => setFormData({...formData, name: e.target.value})}
-                  placeholder="Иван Иванов"
-                  className="bg-background/50 border-accent/40 focus:border-primary"
-                />
+          <Card className="p-10 md:p-16 bg-card shadow-2xl border-primary/10 animate-fade-in overflow-hidden relative" style={{ animationDelay: '0.2s', opacity: 0, animationFillMode: 'forwards' }}>
+            <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -translate-y-32 translate-x-32"></div>
+            <div className="absolute bottom-0 left-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl translate-y-32 -translate-x-32"></div>
+            
+            <form onSubmit={handleSubmit} className="space-y-8 relative z-10">
+              <div className="grid md:grid-cols-2 gap-8">
+                <div>
+                  <label className="flex items-center gap-2 text-base font-light text-foreground mb-3 tracking-wide">
+                    <Icon name="User" size={18} className="text-primary" />
+                    Ваше имя *
+                  </label>
+                  <Input
+                    required
+                    value={formData.name}
+                    onChange={(e) => setFormData({...formData, name: e.target.value})}
+                    placeholder="Иван Иванов"
+                    className="bg-background/70 border-primary/20 focus:border-primary h-12 text-base"
+                  />
+                </div>
+                
+                <div>
+                  <label className="flex items-center gap-2 text-base font-light text-foreground mb-3 tracking-wide">
+                    <Icon name="Users" size={18} className="text-primary" />
+                    Количество гостей *
+                  </label>
+                  <Input
+                    required
+                    type="number"
+                    min="1"
+                    value={formData.guests}
+                    onChange={(e) => setFormData({...formData, guests: e.target.value})}
+                    placeholder="1"
+                    className="bg-background/70 border-primary/20 focus:border-primary h-12 text-base"
+                  />
+                </div>
               </div>
               
               <div>
-                <label className="block text-sm font-light text-foreground mb-2 tracking-wide">
-                  Количество гостей *
-                </label>
-                <Input
-                  required
-                  type="number"
-                  min="1"
-                  value={formData.guests}
-                  onChange={(e) => setFormData({...formData, guests: e.target.value})}
-                  placeholder="1"
-                  className="bg-background/50 border-accent/40 focus:border-primary"
-                />
-              </div>
-              
-              <div>
-                <label className="block text-sm font-light text-foreground mb-3 tracking-wide">
+                <label className="flex items-center gap-2 text-base font-light text-foreground mb-4 tracking-wide">
+                  <Icon name="Wine" size={18} className="text-primary" />
                   Ваши предпочтения по напиткам
                 </label>
-                <div className="space-y-3">
+                <div className="grid md:grid-cols-2 gap-4">
                   {[
-                    { id: 'spirits', label: 'Крепкий алкоголь' },
-                    { id: 'white-wine', label: 'Белое вино' },
-                    { id: 'red-wine', label: 'Красное вино' },
-                    { id: 'champagne', label: 'Шампанское' },
-                    { id: 'non-alcoholic', label: 'Безалкогольные напитки' }
+                    { id: 'spirits', label: 'Крепкий алкоголь', icon: 'Wine' },
+                    { id: 'white-wine', label: 'Белое вино', icon: 'Wine' },
+                    { id: 'red-wine', label: 'Красное вино', icon: 'Wine' },
+                    { id: 'champagne', label: 'Шампанское', icon: 'Sparkles' },
+                    { id: 'non-alcoholic', label: 'Безалкогольные', icon: 'Coffee' }
                   ].map((drink) => (
-                    <div key={drink.id} className="flex items-center space-x-3">
+                    <div key={drink.id} className="flex items-center space-x-3 p-3 rounded-lg hover:bg-primary/5 transition-colors">
                       <Checkbox
                         id={drink.id}
                         checked={formData.drinks.includes(drink.id)}
                         onCheckedChange={() => handleDrinkToggle(drink.id)}
+                        className="border-primary/30"
                       />
                       <label
                         htmlFor={drink.id}
-                        className="text-sm font-light cursor-pointer select-none"
+                        className="text-base font-light cursor-pointer select-none flex-1"
                       >
                         {drink.label}
                       </label>
@@ -460,22 +472,24 @@ const WeddingInvitation = () => {
               </div>
               
               <div>
-                <label className="block text-sm font-light text-foreground mb-2 tracking-wide">
+                <label className="flex items-center gap-2 text-base font-light text-foreground mb-3 tracking-wide">
+                  <Icon name="MessageSquare" size={18} className="text-primary" />
                   Пожелания и комментарии
                 </label>
                 <Textarea
                   value={formData.message}
                   onChange={(e) => setFormData({...formData, message: e.target.value})}
-                  placeholder="Ваше сообщение..."
-                  rows={4}
-                  className="bg-background/50 border-accent/40 focus:border-primary resize-none"
+                  placeholder="Особые пожелания, пищевые ограничения или другие комментарии..."
+                  rows={5}
+                  className="bg-background/70 border-primary/20 focus:border-primary resize-none text-base"
                 />
               </div>
               
               <Button 
                 type="submit"
-                className="w-full bg-primary hover:bg-primary/90 text-primary-foreground py-6 text-lg font-light tracking-wider transition-all hover:shadow-lg"
+                className="w-full bg-primary hover:bg-primary/90 text-primary-foreground py-7 text-xl font-light tracking-wider transition-all hover:shadow-2xl hover:scale-[1.02] group"
               >
+                <Icon name="Send" size={20} className="mr-2 group-hover:translate-x-1 transition-transform" />
                 Подтвердить присутствие
               </Button>
             </form>
