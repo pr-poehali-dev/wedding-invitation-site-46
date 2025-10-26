@@ -285,9 +285,7 @@ const WeddingInvitation = () => {
                   <Icon name="Calendar" size={32} className="mx-auto text-white" />
                 </div>
                 <h3 className="text-lg font-serif mb-1 text-white">Дата</h3>
-                <p className="text-base font-light text-white/95">
-                  15 июля 2025 года
-                </p>
+                <p className="text-base font-light text-white/95">28 ноября 2025 года</p>
               </div>
               
               <div className="text-center bg-gray-900/50 backdrop-blur-sm rounded-lg p-4 md:p-5 border border-white/10 shadow-xl animate-fade-in" style={{ animationDelay: '0.3s', opacity: 0, animationFillMode: 'forwards' }}>
