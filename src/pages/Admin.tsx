@@ -23,7 +23,7 @@ const Admin = () => {
 
   const fetchRSVPs = async () => {
     try {
-      const response = await fetch('https://functions.poehali.dev/acc612ee-3bf1-46b7-8134-a78c85ab7d7c');
+      const response = await fetch('https://functions.poehali.dev/31bff099-c6af-4bd8-9c86-f32d00c82ff5');
       const data = await response.json();
       setRsvps(data.rsvps);
       setTotal(data.total);
