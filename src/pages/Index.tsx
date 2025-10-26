@@ -38,23 +38,46 @@ const WeddingInvitation = () => {
     audioElement.preload = 'auto';
     setAudio(audioElement);
 
-    const handleCanPlay = () => {
-      audioElement.currentTime = 37;
+    let timeSet = false;
+
+    const setStartTime = () => {
+      if (!timeSet && audioElement.readyState >= 1) {
+        audioElement.currentTime = 37;
+        timeSet = true;
+      }
     };
 
-    audioElement.addEventListener('canplay', handleCanPlay);
+    const handleLoadedMetadata = () => {
+      setStartTime();
+    };
+
+    const handlePlaying = () => {
+      setStartTime();
+    };
+
+    audioElement.addEventListener('loadedmetadata', handleLoadedMetadata);
+    audioElement.addEventListener('playing', handlePlaying);
+
+    if (audioElement.readyState >= 1) {
+      audioElement.currentTime = 37;
+      timeSet = true;
+    }
 
     audioElement.play()
       .then(() => {
         setIsPlaying(true);
+        setStartTime();
       })
       .catch(() => {
-        audioElement.currentTime = 37;
+        if (audioElement.readyState >= 1) {
+          audioElement.currentTime = 37;
+        }
         setShowMusicPrompt(true);
       });
 
     return () => {
-      audioElement.removeEventListener('canplay', handleCanPlay);
+      audioElement.removeEventListener('loadedmetadata', handleLoadedMetadata);
+      audioElement.removeEventListener('playing', handlePlaying);
       audioElement.pause();
       audioElement.src = '';
     };
