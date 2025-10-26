@@ -69,7 +69,8 @@ export default {
 				sm: 'calc(var(--radius) - 4px)'
 			},
 			fontFamily: {
-				'script': ['Great Vibes', 'cursive']
+				'script': ['Great Vibes', 'cursive'],
+				'serif': ['Cormorant Garamond', 'serif']
 			},
 			keyframes: {
 				'accordion-down': {

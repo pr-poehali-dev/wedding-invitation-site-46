@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:wght@300;400;500&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -99,19 +99,29 @@
 
   body {
     @apply bg-background text-foreground;
-    font-family:
-      system-ui,
-      -apple-system,
-      sans-serif;
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 300;
+    letter-spacing: 0.02em;
   }
 
-  h1,
+  h1 {
+    font-family: "Great Vibes", cursive;
+    letter-spacing: 0.02em;
+  }
+
   h2,
   h3,
   h4,
   h5,
   h6 {
-    font-family: "Great Vibes", cursive;
-    letter-spacing: 0.02em;
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+  }
+
+  p,
+  span,
+  label {
+    font-weight: 300;
   }
 }
