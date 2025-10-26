@@ -51,7 +51,9 @@ const WeddingInvitation = () => {
       audio.pause();
       setIsPlaying(false);
     } else {
-      audio.currentTime = 37;
+      if (audio.currentTime === 0) {
+        audio.currentTime = 37;
+      }
       const playPromise = audio.play();
       if (playPromise !== undefined) {
         playPromise
