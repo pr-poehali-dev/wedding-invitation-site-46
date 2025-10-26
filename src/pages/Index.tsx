@@ -274,34 +274,34 @@ const WeddingInvitation = () => {
             <div className="h-px w-24 bg-primary/30 mx-auto"></div>
           </div>
           
-          <Card className="p-10 md:p-16 bg-white shadow-2xl border-rose-100 overflow-hidden relative">
+          <Card className="p-6 md:p-10 bg-white shadow-2xl border-rose-100 overflow-hidden relative">
             <div className="absolute inset-0 rounded-lg opacity-75 blur-xl" style={{
               background: 'linear-gradient(90deg, #fda4af 0%, #fb7185 25%, #fda4af 50%, #fb7185 75%, #fda4af 100%)',
               backgroundSize: '200% 100%',
               animation: 'shimmer 3s linear infinite'
             }}></div>
             <div className="absolute inset-[2px] bg-white rounded-lg"></div>
-            <div className="relative z-10 space-y-8">
+            <div className="relative z-10 space-y-6">
             {schedule.map((item, index) => (
               <div 
                 key={index} 
-                className="flex items-start gap-6 md:gap-8 group animate-fade-in"
+                className="flex items-start gap-3 md:gap-6 group animate-fade-in"
                 style={{ animationDelay: `${index * 0.1}s`, opacity: 0, animationFillMode: 'forwards' }}
               >
-                <div className="flex-shrink-0 w-20 md:w-24 text-right pt-2">
-                  <span className="text-xl md:text-2xl font-serif font-light text-primary">
+                <div className="flex-shrink-0 w-16 md:w-20 text-right pt-2">
+                  <span className="text-lg md:text-xl font-serif font-light text-primary">
                     {item.time}
                   </span>
                 </div>
                 
                 <div className="flex-shrink-0 mt-2">
-                  <div className="w-12 h-12 rounded-full bg-accent/40 flex items-center justify-center group-hover:bg-accent/60 transition-smooth group-hover:scale-110 hover-lift">
-                    <Icon name={item.icon as any} size={22} className="text-primary transition-smooth" />
+                  <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-accent/40 flex items-center justify-center group-hover:bg-accent/60 transition-smooth group-hover:scale-110 hover-lift">
+                    <Icon name={item.icon as any} size={20} className="text-primary transition-smooth" />
                   </div>
                 </div>
                 
                 <div className="flex-grow pt-2">
-                  <p className="text-xl md:text-2xl font-light text-foreground">
+                  <p className="text-base md:text-xl font-light text-foreground">
                     {item.event}
                   </p>
                 </div>
