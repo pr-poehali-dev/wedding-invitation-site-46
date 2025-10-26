@@ -28,6 +28,7 @@ const WeddingInvitation = () => {
 
   const [isPlaying, setIsPlaying] = useState(false);
   const [audio, setAudio] = useState<HTMLAudioElement | null>(null);
+  const [scrollY, setScrollY] = useState(0);
 
   useEffect(() => {
     const audioElement = new Audio();
@@ -84,6 +85,15 @@ const WeddingInvitation = () => {
     }, 1000);
 
     return () => clearInterval(timer);
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const handleDrinkToggle = (drink: string) => {
@@ -149,12 +159,21 @@ const WeddingInvitation = () => {
       </button>
       
       <section 
-        className="relative min-h-screen flex items-start justify-center bg-cover bg-center bg-no-repeat pt-4 md:pt-6"
+        className="relative min-h-screen flex items-start justify-center bg-cover bg-center bg-no-repeat pt-4 md:pt-6 overflow-hidden"
         style={{ 
           backgroundImage: 'url(https://cdn.poehali.dev/projects/fa5d2723-1c80-43cf-b863-841e187d3b22/files/cafb2357-2b72-452e-b457-6e6791f964af.jpg)',
         }}
       >
-        <div className="absolute inset-0 bg-background/30 backdrop-blur-[1px]"></div>
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-transform duration-100"
+          style={{ 
+            backgroundImage: 'url(https://cdn.poehali.dev/projects/fa5d2723-1c80-43cf-b863-841e187d3b22/files/cafb2357-2b72-452e-b457-6e6791f964af.jpg)',
+            transform: `translateY(${scrollY * 0.5}px)`,
+            top: '-10%',
+            height: '120%'
+          }}
+        />
+        <div className="absolute inset-0 bg-background/30 backdrop-blur-[1px] z-[1]"></div>
         
         <div className="relative z-10 text-center px-4 animate-fade-in">
           <div className="mb-4 animate-float">
@@ -297,12 +316,15 @@ const WeddingInvitation = () => {
           <div className="h-px w-24 bg-primary/30 mx-auto"></div>
         </div>
         
-        <div className="relative w-full animate-fade-in" style={{ animationDelay: '0.1s', opacity: 0, animationFillMode: 'forwards' }}>
+        <div className="relative w-full animate-fade-in overflow-hidden" style={{ animationDelay: '0.1s', opacity: 0, animationFillMode: 'forwards' }}>
           <img 
             src="https://cdn.poehali.dev/files/cf92b069-54dd-42ee-8cfe-1d04b4a5c9aa.jpg" 
             alt="Место проведения свадьбы"
-            className="w-full h-[600px] md:h-[700px] object-cover object-center"
-            style={{ objectPosition: '55% center' }}
+            className="w-full h-[600px] md:h-[700px] object-cover object-center transition-transform duration-100"
+            style={{ 
+              objectPosition: '55% center',
+              transform: `translateY(${(scrollY - 800) * 0.3}px)`
+            }}
           />
           
           <div className="absolute inset-0 flex items-end justify-center pb-8 md:pb-16">
@@ -357,14 +379,23 @@ const WeddingInvitation = () => {
       <Divider />
 
       <section 
-        className="relative py-20 md:py-32 bg-cover bg-center bg-no-repeat"
+        className="relative py-20 md:py-32 bg-cover bg-center bg-no-repeat overflow-hidden"
         style={{ 
           backgroundImage: 'url(https://cdn.poehali.dev/projects/fa5d2723-1c80-43cf-b863-841e187d3b22/files/00b05cb9-cb7c-421e-9cb4-4fb27f10a0d0.jpg)',
         }}
       >
-        <div className="absolute inset-0 bg-background/30 backdrop-blur-[1px]"></div>
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-transform duration-100"
+          style={{ 
+            backgroundImage: 'url(https://cdn.poehali.dev/projects/fa5d2723-1c80-43cf-b863-841e187d3b22/files/00b05cb9-cb7c-421e-9cb4-4fb27f10a0d0.jpg)',
+            transform: `translateY(${(scrollY - 2000) * 0.4}px)`,
+            top: '-10%',
+            height: '120%'
+          }}
+        />
+        <div className="absolute inset-0 bg-background/30 backdrop-blur-[1px] z-[1]"></div>
         
-        <div className="relative z-10 container max-w-5xl mx-auto px-4">
+        <div className="relative z-10 container max-w-5xl mx-auto px-4" style={{ zIndex: 2 }}>
           <Card className="p-10 md:p-16 bg-card/90 backdrop-blur-sm shadow-2xl border-accent/30 animate-scale-in">
             <h2 className="text-4xl md:text-5xl font-serif text-center mb-4 text-primary font-light">
               До нашего счастливого дня
@@ -427,8 +458,14 @@ const WeddingInvitation = () => {
           </div>
           
           <Card className="p-10 md:p-16 bg-white shadow-2xl border-rose-100 animate-scale-in overflow-hidden relative" style={{ animationDelay: '0.2s', opacity: 0, animationFillMode: 'forwards' }}>
-            <div className="absolute top-0 right-0 w-64 h-64 bg-rose-100/30 rounded-full blur-3xl -translate-y-32 translate-x-32"></div>
-            <div className="absolute bottom-0 left-0 w-64 h-64 bg-pink-100/30 rounded-full blur-3xl translate-y-32 -translate-x-32"></div>
+            <div 
+              className="absolute top-0 right-0 w-64 h-64 bg-rose-100/30 rounded-full blur-3xl -translate-y-32 translate-x-32 transition-transform duration-300"
+              style={{ transform: `translate(8rem, -8rem) translateY(${scrollY * 0.05}px)` }}
+            ></div>
+            <div 
+              className="absolute bottom-0 left-0 w-64 h-64 bg-pink-100/30 rounded-full blur-3xl translate-y-32 -translate-x-32 transition-transform duration-300"
+              style={{ transform: `translate(-8rem, 8rem) translateY(${-scrollY * 0.05}px)` }}
+            ></div>
             
             <form onSubmit={handleSubmit} className="space-y-8 relative z-10">
               <div className="grid md:grid-cols-2 gap-8">
