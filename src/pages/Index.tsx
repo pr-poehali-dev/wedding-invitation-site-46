@@ -38,16 +38,23 @@ const WeddingInvitation = () => {
     audioElement.preload = 'auto';
     setAudio(audioElement);
 
-    audioElement.currentTime = 37;
+    const handleCanPlay = () => {
+      audioElement.currentTime = 37;
+    };
+
+    audioElement.addEventListener('canplay', handleCanPlay);
+
     audioElement.play()
       .then(() => {
         setIsPlaying(true);
       })
       .catch(() => {
+        audioElement.currentTime = 37;
         setShowMusicPrompt(true);
       });
 
     return () => {
+      audioElement.removeEventListener('canplay', handleCanPlay);
       audioElement.pause();
       audioElement.src = '';
     };
