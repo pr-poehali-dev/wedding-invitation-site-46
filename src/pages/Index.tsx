@@ -135,9 +135,7 @@ const WeddingInvitation = () => {
           </div>
           <h1 className="text-7xl md:text-9xl font-serif font-light text-primary mb-64 md:mb-72 tracking-wider text-center">Ксения & Владимир</h1>
           <div className="h-px w-32 bg-primary/40 mx-auto mb-8"></div>
-          <p className="text-2xl md:text-3xl text-foreground font-light tracking-[0.3em]">
-            15 • 07 • 2025
-          </p>
+          <p className="text-2xl md:text-3xl text-foreground font-light tracking-[0.3em]">28 • 11 • 2025</p>
           <p className="mt-8 text-xl md:text-2xl text-muted-foreground font-light italic">
             Приглашаем вас разделить с нами этот особенный день
           </p>
