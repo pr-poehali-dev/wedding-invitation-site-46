@@ -384,30 +384,30 @@ const WeddingInvitation = () => {
 
       <Divider />
 
-      <section className="py-20 md:py-32 bg-gradient-to-b from-secondary/10 via-background to-secondary/10">
+      <section className="py-20 md:py-32 bg-gradient-to-br from-rose-50 via-pink-50 to-rose-50">
         <div className="container max-w-3xl mx-auto px-4">
           <div className="text-center mb-16 animate-fade-in">
             <div className="mb-6">
-              <Icon name="Mail" size={48} className="mx-auto text-primary/70" />
+              <Icon name="Mail" size={48} className="mx-auto text-rose-400" />
             </div>
-            <h2 className="text-4xl md:text-6xl font-serif mb-6 text-primary font-light">
+            <h2 className="text-4xl md:text-6xl font-serif mb-6 text-rose-900 font-light">
               Подтверждение присутствия
             </h2>
-            <div className="h-px w-32 bg-primary/30 mx-auto mb-8"></div>
-            <p className="text-xl text-muted-foreground font-light leading-relaxed max-w-xl mx-auto">
+            <div className="h-px w-32 bg-rose-300 mx-auto mb-8"></div>
+            <p className="text-xl text-rose-700 font-light leading-relaxed max-w-xl mx-auto">
               Будем рады видеть вас на нашем празднике.<br/>Пожалуйста, заполните форму ниже
             </p>
           </div>
           
-          <Card className="p-10 md:p-16 bg-card shadow-2xl border-primary/10 animate-fade-in overflow-hidden relative" style={{ animationDelay: '0.2s', opacity: 0, animationFillMode: 'forwards' }}>
-            <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -translate-y-32 translate-x-32"></div>
-            <div className="absolute bottom-0 left-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl translate-y-32 -translate-x-32"></div>
+          <Card className="p-10 md:p-16 bg-white shadow-2xl border-rose-100 animate-fade-in overflow-hidden relative" style={{ animationDelay: '0.2s', opacity: 0, animationFillMode: 'forwards' }}>
+            <div className="absolute top-0 right-0 w-64 h-64 bg-rose-100/30 rounded-full blur-3xl -translate-y-32 translate-x-32"></div>
+            <div className="absolute bottom-0 left-0 w-64 h-64 bg-pink-100/30 rounded-full blur-3xl translate-y-32 -translate-x-32"></div>
             
             <form onSubmit={handleSubmit} className="space-y-8 relative z-10">
               <div className="grid md:grid-cols-2 gap-8">
                 <div>
-                  <label className="flex items-center gap-2 text-base font-light text-foreground mb-3 tracking-wide">
-                    <Icon name="User" size={18} className="text-primary" />
+                  <label className="flex items-center gap-2 text-base font-medium text-rose-900 mb-3 tracking-wide">
+                    <Icon name="User" size={18} className="text-rose-500" />
                     Ваше имя *
                   </label>
                   <Input
@@ -415,13 +415,13 @@ const WeddingInvitation = () => {
                     value={formData.name}
                     onChange={(e) => setFormData({...formData, name: e.target.value})}
                     placeholder="Иван Иванов"
-                    className="bg-background/70 border-primary/20 focus:border-primary h-12 text-base"
+                    className="bg-rose-50/50 border-rose-200 focus:border-rose-400 h-12 text-base"
                   />
                 </div>
                 
                 <div>
-                  <label className="flex items-center gap-2 text-base font-light text-foreground mb-3 tracking-wide">
-                    <Icon name="Users" size={18} className="text-primary" />
+                  <label className="flex items-center gap-2 text-base font-medium text-rose-900 mb-3 tracking-wide">
+                    <Icon name="Users" size={18} className="text-rose-500" />
                     Количество гостей *
                   </label>
                   <Input
@@ -431,14 +431,14 @@ const WeddingInvitation = () => {
                     value={formData.guests}
                     onChange={(e) => setFormData({...formData, guests: e.target.value})}
                     placeholder="1"
-                    className="bg-background/70 border-primary/20 focus:border-primary h-12 text-base"
+                    className="bg-rose-50/50 border-rose-200 focus:border-rose-400 h-12 text-base"
                   />
                 </div>
               </div>
               
               <div>
-                <label className="flex items-center gap-2 text-base font-light text-foreground mb-4 tracking-wide">
-                  <Icon name="Wine" size={18} className="text-primary" />
+                <label className="flex items-center gap-2 text-base font-medium text-rose-900 mb-4 tracking-wide">
+                  <Icon name="Wine" size={18} className="text-rose-500" />
                   Ваши предпочтения по напиткам
                 </label>
                 <div className="grid md:grid-cols-2 gap-4">
@@ -449,16 +449,16 @@ const WeddingInvitation = () => {
                     { id: 'champagne', label: 'Шампанское', icon: 'Sparkles' },
                     { id: 'non-alcoholic', label: 'Безалкогольные', icon: 'Coffee' }
                   ].map((drink) => (
-                    <div key={drink.id} className="flex items-center space-x-3 p-3 rounded-lg hover:bg-primary/5 transition-colors">
+                    <div key={drink.id} className="flex items-center space-x-3 p-3 rounded-lg hover:bg-rose-100/50 transition-colors">
                       <Checkbox
                         id={drink.id}
                         checked={formData.drinks.includes(drink.id)}
                         onCheckedChange={() => handleDrinkToggle(drink.id)}
-                        className="border-primary/30"
+                        className="border-rose-300"
                       />
                       <label
                         htmlFor={drink.id}
-                        className="text-base font-light cursor-pointer select-none flex-1"
+                        className="text-base font-medium cursor-pointer select-none flex-1 text-rose-900"
                       >
                         {drink.label}
                       </label>
@@ -468,8 +468,8 @@ const WeddingInvitation = () => {
               </div>
               
               <div>
-                <label className="flex items-center gap-2 text-base font-light text-foreground mb-3 tracking-wide">
-                  <Icon name="MessageSquare" size={18} className="text-primary" />
+                <label className="flex items-center gap-2 text-base font-medium text-rose-900 mb-3 tracking-wide">
+                  <Icon name="MessageSquare" size={18} className="text-rose-500" />
                   Пожелания и комментарии
                 </label>
                 <Textarea
@@ -477,13 +477,13 @@ const WeddingInvitation = () => {
                   onChange={(e) => setFormData({...formData, message: e.target.value})}
                   placeholder="Особые пожелания, пищевые ограничения или другие комментарии..."
                   rows={5}
-                  className="bg-background/70 border-primary/20 focus:border-primary resize-none text-base"
+                  className="bg-rose-50/50 border-rose-200 focus:border-rose-400 resize-none text-base"
                 />
               </div>
               
               <Button 
                 type="submit"
-                className="w-full bg-primary hover:bg-primary/90 text-primary-foreground py-7 text-xl font-light tracking-wider transition-all hover:shadow-2xl hover:scale-[1.02] group"
+                className="w-full bg-rose-500 hover:bg-rose-600 text-white py-7 text-xl font-medium tracking-wider transition-all hover:shadow-2xl hover:scale-[1.02] group"
               >
                 <Icon name="Send" size={20} className="mr-2 group-hover:translate-x-1 transition-transform" />
                 Подтвердить присутствие
