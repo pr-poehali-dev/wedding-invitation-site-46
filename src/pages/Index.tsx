@@ -149,6 +149,19 @@ const WeddingInvitation = () => {
 
       <Divider />
 
+      <section className="py-16 md:py-24 bg-background">
+        <div className="container max-w-3xl mx-auto px-4 text-center animate-fade-in">
+          <p className="text-2xl md:text-3xl font-serif text-primary leading-relaxed font-light">
+            Дорогие гости!<br/>
+            Приглашаем вас разделить с нами<br/>
+            радость особенного для нас события и<br/>
+            стать частью нашей семейной истории
+          </p>
+        </div>
+      </section>
+
+      <Divider />
+
       <section className="relative w-full bg-secondary/20">
         <div className="text-center pt-20 pb-12 animate-fade-in">
           <h2 className="text-4xl md:text-5xl font-serif mb-4 text-primary font-light">
