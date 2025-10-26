@@ -28,6 +28,7 @@ const WeddingInvitation = () => {
 
   const [isPlaying, setIsPlaying] = useState(false);
   const [audio, setAudio] = useState<HTMLAudioElement | null>(null);
+  const [showMusicPrompt, setShowMusicPrompt] = useState(false);
 
   useEffect(() => {
     const audioElement = new Audio();
@@ -37,41 +38,18 @@ const WeddingInvitation = () => {
     audioElement.preload = 'auto';
     setAudio(audioElement);
 
-    let started = false;
-
-    const tryPlay = () => {
-      if (!started && audioElement.paused) {
-        started = true;
-        if (audioElement.currentTime === 0) {
-          audioElement.currentTime = 37;
-        }
-        audioElement.play()
-          .then(() => setIsPlaying(true))
-          .catch(() => {
-            started = false;
-          });
-      }
-    };
-
-    const events = ['click', 'touchstart', 'touchend', 'scroll', 'keydown', 'mousemove'];
-    events.forEach(event => {
-      document.addEventListener(event, tryPlay, { once: true, capture: true });
-    });
-
     audioElement.currentTime = 37;
     audioElement.play()
       .then(() => {
         setIsPlaying(true);
-        started = true;
       })
-      .catch(() => {});
+      .catch(() => {
+        setShowMusicPrompt(true);
+      });
 
     return () => {
       audioElement.pause();
       audioElement.src = '';
-      events.forEach(event => {
-        document.removeEventListener(event, tryPlay, true);
-      });
     };
   }, []);
 
@@ -178,8 +156,50 @@ const WeddingInvitation = () => {
     { time: '00:00', event: 'Окончание вечера', icon: 'Moon' }
   ];
 
+  const handleMusicPromptClick = () => {
+    if (audio) {
+      audio.currentTime = 37;
+      audio.play()
+        .then(() => {
+          setIsPlaying(true);
+          setShowMusicPrompt(false);
+        })
+        .catch(() => {
+          toast({
+            title: "Ошибка воспроизведения",
+            description: "Не удалось воспроизвести музыку",
+            variant: "destructive"
+          });
+        });
+    }
+  };
+
   return (
     <div className="min-h-screen bg-background">
+      {showMusicPrompt && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/50 backdrop-blur-sm animate-fade-in">
+          <div className="bg-white rounded-2xl p-8 md:p-12 shadow-2xl max-w-md mx-4 text-center animate-scale-in">
+            <div className="mb-6 animate-float">
+              <Icon name="Music" size={64} className="mx-auto text-primary" />
+            </div>
+            <h2 className="text-2xl md:text-3xl font-serif text-foreground mb-4">
+              Включить музыку?
+            </h2>
+            <p className="text-muted-foreground mb-8">
+              Создайте атмосферу нашего праздника
+            </p>
+            <Button
+              onClick={handleMusicPromptClick}
+              size="lg"
+              className="w-full text-lg py-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+            >
+              <Icon name="Play" size={20} className="mr-2" />
+              Включить музыку
+            </Button>
+          </div>
+        </div>
+      )}
+      
       <button
         onClick={toggleMusic}
         className="fixed top-6 right-6 z-50 w-14 h-14 rounded-full bg-primary/90 backdrop-blur-sm flex items-center justify-center shadow-lg hover:bg-primary transition-smooth hover:scale-110 hover-lift"
